@@ -4,8 +4,8 @@ CREATE TABLE [dbo].[Members]
 [MembershipCode] [varchar] (20) COLLATE Latin1_General_CI_AS NOT NULL,
 [FirstName] [nvarchar] (30) COLLATE Latin1_General_CI_AS NOT NULL,
 [LastName] [nvarchar] (30) COLLATE Latin1_General_CI_AS NOT NULL,
-[Address1] [nvarchar] (30) COLLATE Latin1_General_CI_AS NOT NULL,
-[Address2] [nvarchar] (30) COLLATE Latin1_General_CI_AS NULL,
+[Address1] [nvarchar] (50) COLLATE Latin1_General_CI_AS NOT NULL,
+[Address2] [nvarchar] (50) COLLATE Latin1_General_CI_AS NULL,
 [PostCode] [nvarchar] (10) COLLATE Latin1_General_CI_AS NOT NULL,
 [City] [nvarchar] (30) COLLATE Latin1_General_CI_AS NOT NULL
 ) ON [PRIMARY]
