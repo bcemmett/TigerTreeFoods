@@ -104,8 +104,10 @@
             this.Controls.Add(this.buttonPayNow);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.richTextBoxLastScanned);
+            this.KeyPreview = true;
             this.Name = "PosSession";
             this.Text = "Welcome to Tiger Tree Foods!";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosSession_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
