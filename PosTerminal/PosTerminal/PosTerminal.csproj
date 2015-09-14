@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseAccess.cs" />
     <Compile Include="PosSession.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +53,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingItem.cs" />
     <EmbeddedResource Include="PosSession.resx">
       <DependentUpon>PosSession.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -31,8 +30,15 @@ namespace PosTerminal
 
             if (e.KeyChar == (char) Keys.LineFeed)
             {
-                //Finished receiving barcode
+                ProcessNewItem();
+                m_barcode.Clear();
             }
+        }
+
+        private void ProcessNewItem()
+        {
+            var db = new DatabaseAccess();
+            ShoppingItem newItem = db.GetItemDetails(m_barcode.ToString());
         }
     }
 }
