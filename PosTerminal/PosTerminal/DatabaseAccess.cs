@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 
 namespace PosTerminal
@@ -8,7 +9,8 @@ namespace PosTerminal
         public ShoppingItem GetItemDetails(string barcode)
         {
             var shoppingItem = new ShoppingItem();
-            string connectionString = "Data Source=.\\sql2014;Initial Catalog=TigerTreeFoods;Integrated Security=True;";
+            string connectionString = ConfigurationManager.ConnectionStrings["LiveDb"].ConnectionString;
+            ;
             using (var conn = new SqlConnection(connectionString))
             {
                 conn.Open();
