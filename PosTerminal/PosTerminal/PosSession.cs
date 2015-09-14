@@ -61,7 +61,7 @@ namespace PosTerminal
 
         private void UpdateTotalCost()
         {
-            Decimal total = m_ShoppingItems.Sum(s => s.OfferPrice ?? s.RegularPrice);
+            Decimal total = m_ShoppingItems.Sum(s => s.OfferPrice != null ? Decimal.Round(s.OfferPrice.Value, 2) : Decimal.Round(s.RegularPrice, 2));
             labelTotal.Text = total.ToString("C");
         }
 
