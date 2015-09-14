@@ -1,10 +1,13 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
 
 namespace PosTerminal
 {
     public partial class PosSession : Form
     {
-        private string m_barcode;
+        private StringBuilder m_barcode = new StringBuilder(16);
         
         public PosSession()
         {
@@ -13,8 +16,23 @@ namespace PosTerminal
 
         private void PosSession_KeyPress(object sender, KeyPressEventArgs e)
         {
-            m_barcode += e.KeyChar.ToString();
-            richTextBoxLastScanned.Text = m_barcode;
+            char[] validChars = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+            if (validChars.Contains(e.KeyChar))
+            {
+                m_barcode.Append(e.KeyChar.ToString());
+                return;
+            }
+
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                m_barcode.Clear();
+                return;
+            }
+
+            if (e.KeyChar == (char) Keys.LineFeed)
+            {
+                //Finished receiving barcode
+            }
         }
     }
 }
