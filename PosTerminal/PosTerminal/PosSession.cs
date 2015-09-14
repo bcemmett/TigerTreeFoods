@@ -106,5 +106,14 @@ namespace PosTerminal
             };
             return rtb;
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            tableLayoutPanelShoppingItems.Controls.Clear();
+            tableLayoutPanelShoppingItems.RowCount = 1;
+            labelTotal.Text = String.Empty;
+            richTextBoxLastScanned.Text = String.Empty;
+            m_ShoppingItems.Clear();
+        }
     }
 }
