@@ -29,9 +29,12 @@ namespace PosTerminal
                         + barcode
                         + "'";
                     var reader = cmd.ExecuteReader();
+                    if (!reader.HasRows)
+                    {
+                        throw new Exception("Couldn't find barcode in the database");
+                    }
                     while (reader.Read())
                     {
-
                         shoppingItem.ItemId = (int) reader["ItemId"];
                         shoppingItem.Barcode = (string) reader["Barcode"];
                         shoppingItem.RegularPrice = (Decimal) reader["RegularPrice"];

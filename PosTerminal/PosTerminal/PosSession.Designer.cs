@@ -1,4 +1,6 @@
-﻿namespace PosTerminal
+﻿using System.Windows.Forms;
+
+namespace PosTerminal
 {
     partial class PosSession
     {
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             this.richTextBoxLastScanned = new System.Windows.Forms.RichTextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelShoppingItems = new System.Windows.Forms.TableLayoutPanel();
             this.buttonPayNow = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelTotalLabel = new System.Windows.Forms.Label();
@@ -39,27 +41,35 @@
             // richTextBoxLastScanned
             // 
             this.richTextBoxLastScanned.Enabled = false;
-            this.richTextBoxLastScanned.Location = new System.Drawing.Point(387, 13);
+            this.richTextBoxLastScanned.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxLastScanned.ForeColor = System.Drawing.Color.Teal;
+            this.richTextBoxLastScanned.Location = new System.Drawing.Point(386, 13);
             this.richTextBoxLastScanned.Name = "richTextBoxLastScanned";
             this.richTextBoxLastScanned.Size = new System.Drawing.Size(325, 156);
             this.richTextBoxLastScanned.TabIndex = 1;
             this.richTextBoxLastScanned.Text = "";
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelShoppingItems
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(369, 324);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tableLayoutPanelShoppingItems.AutoScroll = true;
+            this.tableLayoutPanelShoppingItems.AutoScrollMinSize = new System.Drawing.Size(10, 0);
+            this.tableLayoutPanelShoppingItems.AutoSize = true;
+            this.tableLayoutPanelShoppingItems.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanelShoppingItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tableLayoutPanelShoppingItems.ColumnCount = 2;
+            this.tableLayoutPanelShoppingItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
+            this.tableLayoutPanelShoppingItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanelShoppingItems.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanelShoppingItems.Name = "tableLayoutPanelShoppingItems";
+            this.tableLayoutPanelShoppingItems.RowCount = 1;
+            this.tableLayoutPanelShoppingItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelShoppingItems.Size = new System.Drawing.Size(369, 324);
+            this.tableLayoutPanelShoppingItems.TabIndex = 2;
             // 
             // buttonPayNow
             // 
+            this.buttonPayNow.Font = new System.Drawing.Font("Forte", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPayNow.ForeColor = System.Drawing.Color.DarkGreen;
             this.buttonPayNow.Location = new System.Drawing.Point(550, 175);
             this.buttonPayNow.Name = "buttonPayNow";
             this.buttonPayNow.Size = new System.Drawing.Size(162, 161);
@@ -69,6 +79,8 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.Font = new System.Drawing.Font("Forte", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.Firebrick;
             this.buttonCancel.Location = new System.Drawing.Point(387, 275);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(157, 61);
@@ -88,9 +100,11 @@
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.ForeColor = System.Drawing.Color.Teal;
             this.labelTotal.Location = new System.Drawing.Point(388, 213);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(0, 13);
+            this.labelTotal.Size = new System.Drawing.Size(0, 31);
             this.labelTotal.TabIndex = 6;
             // 
             // PosSession
@@ -102,7 +116,7 @@
             this.Controls.Add(this.labelTotalLabel);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonPayNow);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanelShoppingItems);
             this.Controls.Add(this.richTextBoxLastScanned);
             this.KeyPreview = true;
             this.Name = "PosSession";
@@ -116,7 +130,7 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox richTextBoxLastScanned;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelShoppingItems;
         private System.Windows.Forms.Button buttonPayNow;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelTotalLabel;

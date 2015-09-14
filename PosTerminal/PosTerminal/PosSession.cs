@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -7,10 +10,12 @@ namespace PosTerminal
     public partial class PosSession : Form
     {
         private StringBuilder m_barcode = new StringBuilder(16);
+        private List<ShoppingItem> m_ShoppingItems = new List<ShoppingItem>();
         
         public PosSession()
         {
             InitializeComponent();
+            tableLayoutPanelShoppingItems.RowStyles.Clear();
         }
 
         private void PosSession_KeyPress(object sender, KeyPressEventArgs e)
@@ -38,7 +43,68 @@ namespace PosTerminal
         private void ProcessNewItem()
         {
             var db = new DatabaseAccess();
-            ShoppingItem newItem = db.GetItemDetails(m_barcode.ToString());
+            ShoppingItem newItem = new ShoppingItem();
+            try
+            {
+                newItem = db.GetItemDetails(m_barcode.ToString());
+            }
+            catch (Exception)
+            {
+                richTextBoxLastScanned.Text = "Couldn't find item. Seek assistance.";
+                return;
+            }
+            m_ShoppingItems.Add(newItem);
+            UpdateMostRecentItem(newItem);
+            AddShoppingItemToList(newItem);
+            UpdateTotalCost();
+        }
+
+        private void UpdateTotalCost()
+        {
+            Decimal total = m_ShoppingItems.Sum(s => s.OfferPrice ?? s.RegularPrice);
+            labelTotal.Text = total.ToString("C");
+        }
+
+        private void UpdateMostRecentItem(ShoppingItem item)
+        {
+            richTextBoxLastScanned.Text = item.TillDescription;
+            richTextBoxLastScanned.Text += Environment.NewLine;
+            Decimal price = item.OfferPrice ?? item.RegularPrice;
+            richTextBoxLastScanned.Text += price.ToString("C");
+            if (item.OfferPrice != null)
+            {
+                richTextBoxLastScanned.Text += " (special offer)";
+            }
+        }
+
+        private void AddShoppingItemToList(ShoppingItem item)
+        {
+            RichTextBox description = GetRichTextBoxForItemList();
+            description.Text = item.TillDescription;
+
+            Decimal cost = item.OfferPrice ?? item.RegularPrice;
+            RichTextBox price = GetRichTextBoxForItemList();
+            price.Text = cost.ToString("C");
+
+            tableLayoutPanelShoppingItems.RowCount++;
+            int nextRow = tableLayoutPanelShoppingItems.RowCount - 1;
+            tableLayoutPanelShoppingItems.Controls.Add(description, 0, nextRow);
+            tableLayoutPanelShoppingItems.Controls.Add(price, 1, nextRow);
+        }
+
+        private RichTextBox GetRichTextBoxForItemList()
+        {
+            var rtb = new RichTextBox
+            {
+                ForeColor = Color.Teal,
+                Font = (new Font("Microsoft San Serif", 12)),
+                Margin = new Padding(0),
+                Dock = DockStyle.Fill,
+                Height = 20,
+                BorderStyle = BorderStyle.None,
+                Enabled = false
+            };
+            return rtb;
         }
     }
 }
