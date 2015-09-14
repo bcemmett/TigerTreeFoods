@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PosTerminal
 {
-    public partial class Form1 : Form
+    public partial class PosSession : Form
     {
-        public Form1()
+        public PosSession()
         {
             InitializeComponent();
         }

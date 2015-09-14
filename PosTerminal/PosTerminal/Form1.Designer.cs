@@ -1,6 +1,6 @@
 ﻿namespace PosTerminal
 {
-    partial class Form1
+    partial class PosSession
     {
         /// <summary>
         /// Required designer variable.
@@ -93,7 +93,7 @@
             this.labelTotal.Size = new System.Drawing.Size(0, 13);
             this.labelTotal.TabIndex = 6;
             // 
-            // Form1
+            // PosSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -104,8 +104,8 @@
             this.Controls.Add(this.buttonPayNow);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.richTextBoxLastScanned);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "PosSession";
+            this.Text = "Welcome to Tiger Tree Foods!";
             this.ResumeLayout(false);
             this.PerformLayout();
 
