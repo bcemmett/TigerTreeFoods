@@ -31,12 +31,20 @@ namespace PricingManager
         private void buttonConfirm_Click(object sender, System.EventArgs e)
         {
             m_transaction.Commit();
-            Close();
+            Cleanup();
         }
 
         private void buttonCancel_Click(object sender, System.EventArgs e)
         {
             m_transaction.Rollback();
+            Cleanup();
+        }
+
+        private void Cleanup()
+        {
+            m_conn.Dispose();
+            m_cmd.Dispose();
+            m_transaction.Dispose();
             Close();
         }
     }
