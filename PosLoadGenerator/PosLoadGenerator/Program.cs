@@ -9,6 +9,8 @@ namespace PosLoadGenerator
 {
     class Program
     {
+        private static Random m_rdm = new Random();
+
         static void Main(string[] args)
         {
             while (true)
@@ -20,7 +22,7 @@ namespace PosLoadGenerator
             }
         }
 
-        static string MakeDatabaseRequest()
+        private static string MakeDatabaseRequest()
         {
             string barcode = GenerateRandomBarcode();
             string connectionString = ConfigurationManager.ConnectionStrings["LiveDb"].ConnectionString;
@@ -52,10 +54,9 @@ namespace PosLoadGenerator
         private static string GenerateRandomBarcode()
         {
             var chars = "0123456789";
-            var random = new Random();
             var result = new string(
                 Enumerable.Repeat(chars, 16)
-                          .Select(s => s[random.Next(s.Length)])
+                          .Select(s => s[m_rdm.Next(s.Length)])
                           .ToArray());
             return result;
         }
