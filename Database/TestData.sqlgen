@@ -976,6 +976,16 @@ SET     ti.PricePaid = ( SELECT TOP 1
                        )
 FROM    dbo.TransactionItems ti</Script>
     </value>
+    <value version="1" type="SQLScript">
+      <SQLScriptType>InternalSQLScript</SQLScriptType>
+      <Name>Correct total transaction cost</Name>
+      <Script>UPDATE  t
+SET     t.TotalPrice = ( SELECT SUM(ti.PricePaid)
+                         FROM   dbo.TransactionItems ti
+                         WHERE  ti.TransactionId = t.TransactionId
+                       )
+FROM    dbo.Transactions t</Script>
+    </value>
   </PostScripts>
   <IsRefresh>False</IsRefresh>
 </Project>
