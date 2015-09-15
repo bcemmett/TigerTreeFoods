@@ -42,6 +42,7 @@ namespace PosLoadGenerator
                         FROM    dbo.CurrentPrices
                         WHERE   Barcode = @barcode";
                     cmd.Parameters.AddWithValue("barcode", barcode);
+                    cmd.CommandTimeout = 300;
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
