@@ -953,6 +953,18 @@ Version:3.0.1.560-->
 SET     OfferPrice = 0.9 * RegularPrice
 WHERE   ItemId % 8 = 0</Script>
     </value>
+    <value version="1" type="SQLScript">
+      <SQLScriptType>InternalSQLScript</SQLScriptType>
+      <Name>Scannable items</Name>
+      <Script>INSERT  INTO dbo.CurrentPrices
+        ( Barcode, RegularPrice, OfferPrice, TillDescription )
+VALUES  ( N'6154817490341574', 1.20, NULL, N'Pack chocolate biscuits' ),
+        ( N'9418745160124803', 0.45, 0.30, N'Closed cup mushrooms' ),
+        ( N'2154187031946714', 0.60, NULL, N'Single onion' ),
+        ( N'3400487197684118', 2.30, 1.90, N'Strong blue cheese' ),
+        ( N'3174487154933405', 7.99, NULL, N'Bottle red wine' ),
+        ( N'5471548213554009', 1.80, NULL, N'Large pack butter' )</Script>
+    </value>
   </PostScripts>
   <IsRefresh>False</IsRefresh>
 </Project>
