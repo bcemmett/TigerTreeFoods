@@ -217,7 +217,7 @@ Version:3.0.1.560-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">(Large |Small |Medium |Giant )(prime |regular |finest |basic |value |bargain |standard )(red |green |yellow |spotted )(tinned |packet of )(loaf|onion|pasta|pepper|rice|ice cream|sugar|flour|eggs|chicken|beef|lasagne|burgers|sauce|cereal)</value>
+                <value type="string">(Large |Small |Medium |Giant )(prime |regular |finest |basic |value |bargain |standard )(plain |sweet |strong |weak )(red |green |yellow |spotted )(tinned |packet of )(roasted |baked |boiled |cooked |sauteed |toasted |fried |steamed )(loaf|onion|pasta|pepper|rice|ice cream|sugar|flour|eggs|chicken|beef|lasagne|burgers|sauce|cereal)</value>
               </element>
               <element>
                 <key type="string">Unique</key>
