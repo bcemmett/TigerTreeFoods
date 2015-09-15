@@ -25,7 +25,7 @@ namespace PosTerminal
                                 OfferPrice ,
                                 TillDescription
                         FROM    dbo.CurrentPrices
-                        WHERE   Barcode = '"
+                        WHERE   Barcode = N'"
                         + barcode
                         + "'";
                     var reader = cmd.ExecuteReader();
