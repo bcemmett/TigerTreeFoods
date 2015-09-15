@@ -79,6 +79,7 @@
             this.buttonLoadCurrentPricingData.TabIndex = 3;
             this.buttonLoadCurrentPricingData.Text = "Refresh data";
             this.buttonLoadCurrentPricingData.UseVisualStyleBackColor = false;
+            this.buttonLoadCurrentPricingData.Click += new System.EventHandler(this.buttonLoadCurrentPricingData_Click);
             // 
             // buttonCancelAllOffers
             // 
@@ -92,6 +93,7 @@
             this.buttonCancelAllOffers.TabIndex = 2;
             this.buttonCancelAllOffers.Text = "End all offers";
             this.buttonCancelAllOffers.UseVisualStyleBackColor = false;
+            this.buttonCancelAllOffers.Click += new System.EventHandler(this.buttonCancelAllOffers_Click);
             // 
             // labelCurrentPricing
             // 

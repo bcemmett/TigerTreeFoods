@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PricingManager
@@ -15,6 +8,17 @@ namespace PricingManager
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void buttonLoadCurrentPricingData_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonCancelAllOffers_Click(object sender, EventArgs e)
+        {
+            var offerCanceller = new OfferCancelForm();
+            offerCanceller.Show();
+            offerCanceller.CancelOffers();
         }
     }
 }
