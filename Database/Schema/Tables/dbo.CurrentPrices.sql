@@ -6,6 +6,8 @@ CREATE TABLE [dbo].[CurrentPrices]
 [OfferPrice] [money] NULL,
 [TillDescription] [nvarchar] (100) COLLATE Latin1_General_CI_AS NOT NULL
 ) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [NonClusteredIndex_ItemId_Barcode] ON [dbo].[CurrentPrices] ([ItemId], [Barcode]) INCLUDE ([OfferPrice], [RegularPrice], [TillDescription]) ON [PRIMARY]
+
 ALTER TABLE [dbo].[CurrentPrices] ADD 
 CONSTRAINT [PK_CurrentPrices_ItemId] PRIMARY KEY CLUSTERED  ([ItemId]) ON [PRIMARY]
 GO
