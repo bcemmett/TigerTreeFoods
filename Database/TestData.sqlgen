@@ -965,6 +965,17 @@ VALUES  ( N'6154817490341574', 1.20, NULL, N'Pack chocolate biscuits' ),
         ( N'3174487154933405', 7.99, NULL, N'Bottle red wine' ),
         ( N'5471548213554009', 1.80, NULL, N'Large pack butter' )</Script>
     </value>
+    <value version="1" type="SQLScript">
+      <SQLScriptType>InternalSQLScript</SQLScriptType>
+      <Name>Correct TransactionItem prices</Name>
+      <Script>UPDATE  ti
+SET     ti.PricePaid = ( SELECT TOP 1
+                                cp.RegularPrice
+                         FROM   dbo.CurrentPrices cp
+                         WHERE  ti.ItemId = cp.ItemId
+                       )
+FROM    dbo.TransactionItems ti</Script>
+    </value>
   </PostScripts>
   <IsRefresh>False</IsRefresh>
 </Project>
