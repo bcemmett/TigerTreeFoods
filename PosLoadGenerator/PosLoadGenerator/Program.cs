@@ -13,7 +13,9 @@ namespace PosLoadGenerator
         {
             while (true)
             {
-                Thread.Sleep(1000);
+                var random = new Random();
+                int delay = random.Next(50, 250);
+                Thread.Sleep(delay);
                 Task.Run(() => Console.WriteLine("Looked up {0}",MakeDatabaseRequest()));
             }
         }
