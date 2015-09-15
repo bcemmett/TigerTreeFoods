@@ -78,6 +78,7 @@
             this.Controls.Add(this.buttonConfirm);
             this.Name = "OfferCancelForm";
             this.Text = "Cancel Offers";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OfferCancelForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
