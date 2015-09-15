@@ -27,5 +27,17 @@ namespace PricingManager
             m_cmd.CommandText = "UPDATE CurrentPrices SET OfferPrice = null";
             m_cmd.ExecuteNonQuery();
         }
+
+        private void buttonConfirm_Click(object sender, System.EventArgs e)
+        {
+            m_transaction.Commit();
+            Close();
+        }
+
+        private void buttonCancel_Click(object sender, System.EventArgs e)
+        {
+            m_transaction.Rollback();
+            Close();
+        }
     }
 }
