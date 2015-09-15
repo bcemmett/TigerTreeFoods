@@ -945,6 +945,14 @@ Version:3.0.1.560-->
     <ShuffleBlockSize>1000</ShuffleBlockSize>
   </ProjectOptions>
   <PreScripts type="SQLScripts" version="1" />
-  <PostScripts type="SQLScripts" version="1" />
+  <PostScripts type="SQLScripts" version="1">
+    <value version="1" type="SQLScript">
+      <SQLScriptType>InternalSQLScript</SQLScriptType>
+      <Name>Offers</Name>
+      <Script>UPDATE  CurrentPrices
+SET     OfferPrice = 0.9 * RegularPrice
+WHERE   ItemId % 8 = 0</Script>
+    </value>
+  </PostScripts>
   <IsRefresh>False</IsRefresh>
 </Project>
