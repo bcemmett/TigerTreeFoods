@@ -173,12 +173,10 @@ namespace PricingManager
                             OfferPrice = (Decimal?)reader["OfferPrice"],
                             TillDescription = (string)reader["TillDescription"]
                         };
-                        item.CompetitorPrice = CompetitorLookup.LookupCompetitorPrice(item.TillDescription);
+                        item.CompetitorPrice = CompetitorLookup.LookupCompetitorPrice(item.TillDescription, item.OfferPrice);
 
                         AddCompetitorItemToTableCallback update = new AddCompetitorItemToTableCallback(AddCompetitorItemToTable);
                         this.Invoke(update, new object[] {item});
-                        
-                        Thread.Sleep(1000);
                     }
                 }
             }
