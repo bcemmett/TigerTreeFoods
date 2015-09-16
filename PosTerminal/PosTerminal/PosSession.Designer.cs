@@ -52,15 +52,17 @@ namespace PosTerminal
             // tableLayoutPanelShoppingItems
             // 
             this.tableLayoutPanelShoppingItems.AutoScroll = true;
-            this.tableLayoutPanelShoppingItems.AutoScrollMinSize = new System.Drawing.Size(10, 0);
+            this.tableLayoutPanelShoppingItems.AutoScrollMargin = new System.Drawing.Size(10, 0);
             this.tableLayoutPanelShoppingItems.AutoSize = true;
             this.tableLayoutPanelShoppingItems.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanelShoppingItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tableLayoutPanelShoppingItems.ColumnCount = 2;
-            this.tableLayoutPanelShoppingItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
+            this.tableLayoutPanelShoppingItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanelShoppingItems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tableLayoutPanelShoppingItems.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanelShoppingItems.MaximumSize = new System.Drawing.Size(369, 324);
             this.tableLayoutPanelShoppingItems.Name = "tableLayoutPanelShoppingItems";
+            this.tableLayoutPanelShoppingItems.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
             this.tableLayoutPanelShoppingItems.RowCount = 1;
             this.tableLayoutPanelShoppingItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 320F));
             this.tableLayoutPanelShoppingItems.Size = new System.Drawing.Size(369, 324);

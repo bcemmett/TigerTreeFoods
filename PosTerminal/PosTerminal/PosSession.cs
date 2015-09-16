@@ -79,6 +79,7 @@ namespace PosTerminal
 
         private void AddShoppingItemToList(ShoppingItem item)
         {
+            tableLayoutPanelShoppingItems.SuspendLayout();
             RichTextBox description = GetRichTextBoxForItemList();
             description.Text = item.TillDescription;
 
@@ -90,6 +91,7 @@ namespace PosTerminal
             int nextRow = tableLayoutPanelShoppingItems.RowCount - 1;
             tableLayoutPanelShoppingItems.Controls.Add(description, 0, nextRow);
             tableLayoutPanelShoppingItems.Controls.Add(price, 1, nextRow);
+            tableLayoutPanelShoppingItems.ResumeLayout();
         }
 
         private RichTextBox GetRichTextBoxForItemList()
