@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using PosTerminal;
 
@@ -13,6 +14,7 @@ namespace PricingManager
     public partial class MainForm : Form
     {
         private List<ShoppingItem> m_currentPrices = new List<ShoppingItem>();
+        private delegate void AddCompetitorItemToTableCallback(CompetitorItem item);
 
         public MainForm()
         {
@@ -138,7 +140,7 @@ namespace PricingManager
         private void buttonFetchCompetitorPricing_Click(object sender, EventArgs e)
         {
             ResetTable(tableLayoutPanelCompetitorPricing);
-            PopulateCompetitorPricing();
+            Task.Run(() => PopulateCompetitorPricing());
         }
 
         private void PopulateCompetitorPricing()
@@ -164,8 +166,9 @@ namespace PricingManager
                         };
                         item.CompetitorPrice = CompetitorLookup.LookupCompetitorPrice(item.TillDescription);
 
-                        AddCompetitorItemToTable(item);
-                        Refresh();
+                        AddCompetitorItemToTableCallback update = new AddCompetitorItemToTableCallback(AddCompetitorItemToTable);
+                        this.Invoke(update, new object[] {item});
+                        
                         Thread.Sleep(1000);
                     }
                 }
