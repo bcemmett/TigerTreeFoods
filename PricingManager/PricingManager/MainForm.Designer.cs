@@ -37,8 +37,12 @@
             this.labelCurrentPricing = new System.Windows.Forms.Label();
             this.tableLayoutPanelCurrentPricing = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.labelCompetitorPricing = new System.Windows.Forms.Label();
+            this.tableLayoutPanelCompetitorPricing = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonFetchCompetitorPricing = new System.Windows.Forms.Button();
             this.tabControlPricing.SuspendLayout();
             this.tabPageCurrentPricing.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlPricing
@@ -145,6 +149,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonFetchCompetitorPricing);
+            this.tabPage2.Controls.Add(this.tableLayoutPanelCompetitorPricing);
+            this.tabPage2.Controls.Add(this.labelCompetitorPricing);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -152,6 +159,50 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Competitor Price Analysis";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // labelCompetitorPricing
+            // 
+            this.labelCompetitorPricing.AutoSize = true;
+            this.labelCompetitorPricing.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCompetitorPricing.Location = new System.Drawing.Point(6, 12);
+            this.labelCompetitorPricing.Name = "labelCompetitorPricing";
+            this.labelCompetitorPricing.Size = new System.Drawing.Size(182, 24);
+            this.labelCompetitorPricing.TabIndex = 2;
+            this.labelCompetitorPricing.Text = "Competitor Pricing";
+            // 
+            // tableLayoutPanelCompetitorPricing
+            // 
+            this.tableLayoutPanelCompetitorPricing.AutoScroll = true;
+            this.tableLayoutPanelCompetitorPricing.AutoScrollMinSize = new System.Drawing.Size(10, 0);
+            this.tableLayoutPanelCompetitorPricing.AutoSize = true;
+            this.tableLayoutPanelCompetitorPricing.ColumnCount = 5;
+            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
+            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelCompetitorPricing.Location = new System.Drawing.Point(6, 48);
+            this.tableLayoutPanelCompetitorPricing.MaximumSize = new System.Drawing.Size(761, 352);
+            this.tableLayoutPanelCompetitorPricing.Name = "tableLayoutPanelCompetitorPricing";
+            this.tableLayoutPanelCompetitorPricing.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.tableLayoutPanelCompetitorPricing.RowCount = 1;
+            this.tableLayoutPanelCompetitorPricing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelCompetitorPricing.Size = new System.Drawing.Size(761, 352);
+            this.tableLayoutPanelCompetitorPricing.TabIndex = 3;
+            // 
+            // buttonFetchCompetitorPricing
+            // 
+            this.buttonFetchCompetitorPricing.BackColor = System.Drawing.Color.Transparent;
+            this.buttonFetchCompetitorPricing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFetchCompetitorPricing.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFetchCompetitorPricing.ForeColor = System.Drawing.Color.LimeGreen;
+            this.buttonFetchCompetitorPricing.Location = new System.Drawing.Point(635, 15);
+            this.buttonFetchCompetitorPricing.Name = "buttonFetchCompetitorPricing";
+            this.buttonFetchCompetitorPricing.Size = new System.Drawing.Size(132, 23);
+            this.buttonFetchCompetitorPricing.TabIndex = 4;
+            this.buttonFetchCompetitorPricing.Text = "Look up pricing";
+            this.buttonFetchCompetitorPricing.UseVisualStyleBackColor = false;
+            this.buttonFetchCompetitorPricing.Click += new System.EventHandler(this.buttonFetchCompetitorPricing_Click);
             // 
             // MainForm
             // 
@@ -165,6 +216,8 @@
             this.tabControlPricing.ResumeLayout(false);
             this.tabPageCurrentPricing.ResumeLayout(false);
             this.tabPageCurrentPricing.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -180,6 +233,9 @@
         private System.Windows.Forms.Button buttonLoadCurrentPricingData;
         private System.Windows.Forms.Label labelFilter;
         private System.Windows.Forms.TextBox textBoxFilter;
+        private System.Windows.Forms.Button buttonFetchCompetitorPricing;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCompetitorPricing;
+        private System.Windows.Forms.Label labelCompetitorPricing;
     }
 }
 

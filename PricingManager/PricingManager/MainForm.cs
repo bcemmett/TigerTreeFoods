@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using PosTerminal;
 
@@ -17,6 +18,7 @@ namespace PricingManager
         {
             InitializeComponent();
             tableLayoutPanelCurrentPricing.RowStyles.Clear();
+            tableLayoutPanelCompetitorPricing.RowStyles.Clear();
             UpdateCurrentPricesGridFromDatabase();
         }
 
@@ -68,22 +70,22 @@ namespace PricingManager
                 ? m_currentPrices.Take(itemsToDisplay).ToList()
                 : m_currentPrices.Where(p => p.TillDescription.Contains(filter)).Take(itemsToDisplay).ToList();
             tableLayoutPanelCurrentPricing.SuspendLayout();
-            ResetTable();
+            ResetTable(tableLayoutPanelCurrentPricing);
             foreach (var item in items)
             {
-                AddItemToTable(item);
+                AddItemToCurrentPricingTable(item);
             }
             tableLayoutPanelCurrentPricing.ResumeLayout();
         }
 
-        private void ResetTable()
+        private void ResetTable(TableLayoutPanel table)
         {
-            tableLayoutPanelCurrentPricing.RowStyles.Clear();
-            tableLayoutPanelCurrentPricing.Controls.Clear();
-            tableLayoutPanelCurrentPricing.RowCount = 1;
+            table.RowStyles.Clear();
+            table.Controls.Clear();
+            table.RowCount = 1;
         }
 
-        private void AddItemToTable(ShoppingItem item)
+        private void AddItemToCurrentPricingTable(ShoppingItem item)
         {
             RichTextBox description = GetRichTextBoxForItemList();
             description.Text = item.TillDescription;
@@ -131,6 +133,72 @@ namespace PricingManager
         private void textBoxFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
             UpdateCurrentPricesGrid();
+        }
+
+        private void buttonFetchCompetitorPricing_Click(object sender, EventArgs e)
+        {
+            ResetTable(tableLayoutPanelCompetitorPricing);
+            PopulateCompetitorPricing();
+        }
+
+        private void PopulateCompetitorPricing()
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["LiveDb"].ConnectionString;
+            using (var conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "SELECT ItemId, TillDescription, RegularPrice, OfferPrice, Barcode FROM CurrentPrices WHERE OfferPrice IS NOT NULL";
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var item = new CompetitorItem
+                        {
+                            ItemId = (int)reader["ItemId"],
+                            Barcode = (string)reader["Barcode"],
+                            RegularPrice = (Decimal)reader["RegularPrice"],
+                            OfferPrice = (Decimal?)reader["OfferPrice"],
+                            TillDescription = (string)reader["TillDescription"]
+                        };
+                        item.CompetitorPrice = CompetitorLookup.LookupCompetitorPrice(item.TillDescription);
+
+                        AddCompetitorItemToTable(item);
+                        Refresh();
+                        Thread.Sleep(1000);
+                    }
+                }
+            }
+        }
+
+        private void AddCompetitorItemToTable(CompetitorItem item)
+        {
+            RichTextBox description = GetRichTextBoxForItemList();
+            description.Text = item.TillDescription;
+
+            RichTextBox regularPrice = GetRichTextBoxForItemList();
+            regularPrice.Text = item.RegularPrice.ToString("C");
+
+            RichTextBox offerPrice = GetRichTextBoxForItemList();
+            offerPrice.Text = item.OfferPrice.HasValue ? item.OfferPrice.Value.ToString("C") : String.Empty;
+
+            RichTextBox competitorPrice = GetRichTextBoxForItemList();
+            competitorPrice.Text = item.CompetitorPrice.HasValue ? item.CompetitorPrice.Value.ToString("C") : "NO MATCH";
+
+            Button updatePrice = new Button
+            {
+                Text = "Edit",
+                Width = 60
+            };
+
+            tableLayoutPanelCompetitorPricing.RowCount++;
+            int nextRow = tableLayoutPanelCompetitorPricing.RowCount - 1;
+            tableLayoutPanelCompetitorPricing.Controls.Add(description, 0, nextRow);
+            tableLayoutPanelCompetitorPricing.Controls.Add(regularPrice, 1, nextRow);
+            tableLayoutPanelCompetitorPricing.Controls.Add(offerPrice, 2, nextRow);
+            tableLayoutPanelCompetitorPricing.Controls.Add(competitorPrice, 3, nextRow);
+            tableLayoutPanelCompetitorPricing.Controls.Add(updatePrice, 4, nextRow);
         }
     }
 }
