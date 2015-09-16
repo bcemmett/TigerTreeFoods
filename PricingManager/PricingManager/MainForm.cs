@@ -91,12 +91,19 @@ namespace PricingManager
             RichTextBox barcode = GetRichTextBoxForItemList();
             barcode.Text = item.Barcode;
 
+            Button updatePrice = new Button
+            {
+                Text = "Edit",
+                Width = 60
+            };
+
             tableLayoutPanelCurrentPricing.RowCount++;
             int nextRow = tableLayoutPanelCurrentPricing.RowCount - 1;
             tableLayoutPanelCurrentPricing.Controls.Add(description, 0, nextRow);
             tableLayoutPanelCurrentPricing.Controls.Add(barcode, 1, nextRow);
             tableLayoutPanelCurrentPricing.Controls.Add(regularPrice, 2, nextRow);
             tableLayoutPanelCurrentPricing.Controls.Add(offerPrice, 3, nextRow);
+            tableLayoutPanelCurrentPricing.Controls.Add(updatePrice, 4, nextRow);
         }
 
         private RichTextBox GetRichTextBoxForItemList()
@@ -107,7 +114,7 @@ namespace PricingManager
                 BackColor = SystemColors.Window,
                 Font = (new Font("Microsoft San Serif", 10)),
                 Margin = new Padding(0),
-                Height = 18,
+                Height = 20,
                 Dock = DockStyle.Fill,
                 BorderStyle = BorderStyle.None,
                 ReadOnly = true
