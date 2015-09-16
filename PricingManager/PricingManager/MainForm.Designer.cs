@@ -40,6 +40,7 @@
             this.labelCompetitorPricing = new System.Windows.Forms.Label();
             this.tableLayoutPanelCompetitorPricing = new System.Windows.Forms.TableLayoutPanel();
             this.buttonFetchCompetitorPricing = new System.Windows.Forms.Button();
+            this.buttonCancelCompetitorLookup = new System.Windows.Forms.Button();
             this.tabControlPricing.SuspendLayout();
             this.tabPageCurrentPricing.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonCancelCompetitorLookup);
             this.tabPage2.Controls.Add(this.buttonFetchCompetitorPricing);
             this.tabPage2.Controls.Add(this.tableLayoutPanelCompetitorPricing);
             this.tabPage2.Controls.Add(this.labelCompetitorPricing);
@@ -204,6 +206,21 @@
             this.buttonFetchCompetitorPricing.UseVisualStyleBackColor = false;
             this.buttonFetchCompetitorPricing.Click += new System.EventHandler(this.buttonFetchCompetitorPricing_Click);
             // 
+            // buttonCancelCompetitorLookup
+            // 
+            this.buttonCancelCompetitorLookup.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCancelCompetitorLookup.Enabled = false;
+            this.buttonCancelCompetitorLookup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancelCompetitorLookup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelCompetitorLookup.ForeColor = System.Drawing.Color.Red;
+            this.buttonCancelCompetitorLookup.Location = new System.Drawing.Point(497, 15);
+            this.buttonCancelCompetitorLookup.Name = "buttonCancelCompetitorLookup";
+            this.buttonCancelCompetitorLookup.Size = new System.Drawing.Size(132, 23);
+            this.buttonCancelCompetitorLookup.TabIndex = 5;
+            this.buttonCancelCompetitorLookup.Text = "Cancel";
+            this.buttonCancelCompetitorLookup.UseVisualStyleBackColor = false;
+            this.buttonCancelCompetitorLookup.Click += new System.EventHandler(this.buttonCancelCompetitorLookup_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +253,7 @@
         private System.Windows.Forms.Button buttonFetchCompetitorPricing;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCompetitorPricing;
         private System.Windows.Forms.Label labelCompetitorPricing;
+        private System.Windows.Forms.Button buttonCancelCompetitorLookup;
     }
 }
 

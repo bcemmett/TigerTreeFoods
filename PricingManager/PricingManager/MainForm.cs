@@ -15,6 +15,7 @@ namespace PricingManager
     {
         private List<ShoppingItem> m_currentPrices = new List<ShoppingItem>();
         private delegate void AddCompetitorItemToTableCallback(CompetitorItem item);
+        private CancellationTokenSource m_competitorLookupCancellationToken;
 
         public MainForm()
         {
@@ -140,7 +141,11 @@ namespace PricingManager
         private void buttonFetchCompetitorPricing_Click(object sender, EventArgs e)
         {
             ResetTable(tableLayoutPanelCompetitorPricing);
-            Task.Run(() => PopulateCompetitorPricing());
+            m_competitorLookupCancellationToken = new CancellationTokenSource();
+            var token = m_competitorLookupCancellationToken.Token;
+            buttonFetchCompetitorPricing.Enabled = false;
+            buttonCancelCompetitorLookup.Enabled = true;
+            Task.Run(() => PopulateCompetitorPricing(), token);
         }
 
         private void PopulateCompetitorPricing()
@@ -156,6 +161,10 @@ namespace PricingManager
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
+                        if (m_competitorLookupCancellationToken.IsCancellationRequested)
+                        {
+                            return;
+                        }
                         var item = new CompetitorItem
                         {
                             ItemId = (int)reader["ItemId"],
@@ -204,6 +213,16 @@ namespace PricingManager
             tableLayoutPanelCompetitorPricing.Controls.Add(competitorPrice, 3, nextRow);
             tableLayoutPanelCompetitorPricing.Controls.Add(updatePrice, 4, nextRow);
             tableLayoutPanelCompetitorPricing.ResumeLayout();
+        }
+
+        private void buttonCancelCompetitorLookup_Click(object sender, EventArgs e)
+        {
+            if (m_competitorLookupCancellationToken != null)
+            {
+                m_competitorLookupCancellationToken.Cancel();
+                buttonFetchCompetitorPricing.Enabled = true;
+                buttonCancelCompetitorLookup.Enabled = false;
+            }
         }
     }
 }
