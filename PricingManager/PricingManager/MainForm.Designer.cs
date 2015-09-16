@@ -30,13 +30,13 @@
         {
             this.tabControlPricing = new System.Windows.Forms.TabControl();
             this.tabPageCurrentPricing = new System.Windows.Forms.TabPage();
+            this.labelFilter = new System.Windows.Forms.Label();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.buttonLoadCurrentPricingData = new System.Windows.Forms.Button();
             this.buttonCancelAllOffers = new System.Windows.Forms.Button();
             this.labelCurrentPricing = new System.Windows.Forms.Label();
             this.tableLayoutPanelCurrentPricing = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBoxFilter = new System.Windows.Forms.TextBox();
-            this.labelFilter = new System.Windows.Forms.Label();
             this.tabControlPricing.SuspendLayout();
             this.tabPageCurrentPricing.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,23 @@
             this.tabPageCurrentPricing.TabIndex = 0;
             this.tabPageCurrentPricing.Text = "Current Pricing";
             this.tabPageCurrentPricing.UseVisualStyleBackColor = true;
+            // 
+            // labelFilter
+            // 
+            this.labelFilter.AutoSize = true;
+            this.labelFilter.Location = new System.Drawing.Point(231, 20);
+            this.labelFilter.Name = "labelFilter";
+            this.labelFilter.Size = new System.Drawing.Size(32, 13);
+            this.labelFilter.TabIndex = 5;
+            this.labelFilter.Text = "Filter:";
+            // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(269, 15);
+            this.textBoxFilter.Multiline = true;
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(222, 23);
+            this.textBoxFilter.TabIndex = 4;
             // 
             // buttonLoadCurrentPricingData
             // 
@@ -109,10 +126,10 @@
             // 
             this.tableLayoutPanelCurrentPricing.ColumnCount = 5;
             this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
-            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanelCurrentPricing.Location = new System.Drawing.Point(6, 48);
             this.tableLayoutPanelCurrentPricing.Name = "tableLayoutPanelCurrentPricing";
             this.tableLayoutPanelCurrentPricing.RowCount = 1;
@@ -129,23 +146,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Competitor Price Analysis";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // textBoxFilter
-            // 
-            this.textBoxFilter.Location = new System.Drawing.Point(269, 15);
-            this.textBoxFilter.Multiline = true;
-            this.textBoxFilter.Name = "textBoxFilter";
-            this.textBoxFilter.Size = new System.Drawing.Size(222, 23);
-            this.textBoxFilter.TabIndex = 4;
-            // 
-            // labelFilter
-            // 
-            this.labelFilter.AutoSize = true;
-            this.labelFilter.Location = new System.Drawing.Point(231, 20);
-            this.labelFilter.Name = "labelFilter";
-            this.labelFilter.Size = new System.Drawing.Size(32, 13);
-            this.labelFilter.TabIndex = 5;
-            this.labelFilter.Text = "Filter:";
             // 
             // MainForm
             // 
