@@ -62,7 +62,7 @@ namespace PosTerminal
             this.tableLayoutPanelShoppingItems.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanelShoppingItems.Name = "tableLayoutPanelShoppingItems";
             this.tableLayoutPanelShoppingItems.RowCount = 1;
-            this.tableLayoutPanelShoppingItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelShoppingItems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 320F));
             this.tableLayoutPanelShoppingItems.Size = new System.Drawing.Size(369, 324);
             this.tableLayoutPanelShoppingItems.TabIndex = 2;
             // 
@@ -119,6 +119,7 @@ namespace PosTerminal
             this.Controls.Add(this.buttonPayNow);
             this.Controls.Add(this.tableLayoutPanelShoppingItems);
             this.Controls.Add(this.richTextBoxLastScanned);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Name = "PosSession";
             this.Text = "Welcome to Tiger Tree Foods!";
