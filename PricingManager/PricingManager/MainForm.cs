@@ -177,6 +177,7 @@ namespace PricingManager
 
         private void AddCompetitorItemToTable(CompetitorItem item)
         {
+            tableLayoutPanelCompetitorPricing.SuspendLayout();
             RichTextBox description = GetRichTextBoxForItemList();
             description.Text = item.TillDescription;
 
@@ -202,6 +203,7 @@ namespace PricingManager
             tableLayoutPanelCompetitorPricing.Controls.Add(offerPrice, 2, nextRow);
             tableLayoutPanelCompetitorPricing.Controls.Add(competitorPrice, 3, nextRow);
             tableLayoutPanelCompetitorPricing.Controls.Add(updatePrice, 4, nextRow);
+            tableLayoutPanelCompetitorPricing.ResumeLayout();
         }
     }
 }
