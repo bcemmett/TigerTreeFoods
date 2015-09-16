@@ -41,7 +41,7 @@ namespace PricingManager
                 using (var cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT TOP 250 ItemId, TillDescription, RegularPrice, OfferPrice, Barcode FROM CurrentPrices";
+                    cmd.CommandText = "SELECT ItemId, TillDescription, RegularPrice, OfferPrice, Barcode FROM CurrentPrices";
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
