@@ -76,6 +76,7 @@
             this.Controls.Add(this.textBoxMessage);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonConfirm);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "OfferCancelForm";
             this.Text = "Cancel Offers";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OfferCancelForm_FormClosing);

@@ -159,6 +159,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 456);
             this.Controls.Add(this.tabControlPricing);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "Pricing Manager";
             this.tabControlPricing.ResumeLayout(false);
