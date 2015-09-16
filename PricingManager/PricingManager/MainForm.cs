@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using PosTerminal;
 
@@ -9,6 +11,8 @@ namespace PricingManager
 {
     public partial class MainForm : Form
     {
+        private List<ShoppingItem> m_currentPrices = new List<ShoppingItem>();
+
         public MainForm()
         {
             InitializeComponent();
@@ -33,7 +37,6 @@ namespace PricingManager
                     cmd.Connection = conn;
                     cmd.CommandText = "SELECT TOP 250 ItemId, TillDescription, RegularPrice, OfferPrice, Barcode FROM CurrentPrices";
                     var reader = cmd.ExecuteReader();
-                    tableLayoutPanelCurrentPricing.SuspendLayout();
                     while (reader.Read())
                     {
                         var item = new ShoppingItem
@@ -44,11 +47,34 @@ namespace PricingManager
                             OfferPrice = reader["OfferPrice"] == DBNull.Value ? null : (Decimal?) reader["OfferPrice"],
                             TillDescription = (string) reader["TillDescription"]
                         };
-                        AddItemToTable(item);
+                        m_currentPrices.Add(item);
                     }
-                    tableLayoutPanelCurrentPricing.ResumeLayout();
+                    UpdateCurrentPricesGrid();
                 }
             }
+        }
+
+        private void UpdateCurrentPricesGrid()
+        {
+            int itemsToDisplay = 100;
+            string filter = textBoxFilter.Text;
+            List<ShoppingItem> items = String.IsNullOrWhiteSpace(filter)
+                ? m_currentPrices.Take(itemsToDisplay).ToList()
+                : m_currentPrices.Where(p => p.TillDescription.Contains(filter)).Take(itemsToDisplay).ToList();
+            tableLayoutPanelCurrentPricing.SuspendLayout();
+            ResetTable();
+            foreach (var item in items)
+            {
+                AddItemToTable(item);
+            }
+            tableLayoutPanelCurrentPricing.ResumeLayout();
+        }
+
+        private void ResetTable()
+        {
+            tableLayoutPanelCurrentPricing.RowStyles.Clear();
+            tableLayoutPanelCurrentPricing.Controls.Clear();
+            tableLayoutPanelCurrentPricing.RowCount = 1;
         }
 
         private void AddItemToTable(ShoppingItem item)
