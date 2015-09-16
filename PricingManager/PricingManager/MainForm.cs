@@ -114,5 +114,10 @@ namespace PricingManager
             };
             return rtb;
         }
+
+        private void textBoxFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UpdateCurrentPricesGrid();
+        }
     }
 }
