@@ -125,14 +125,19 @@
             // 
             // tableLayoutPanelCurrentPricing
             // 
+            this.tableLayoutPanelCurrentPricing.AutoScroll = true;
+            this.tableLayoutPanelCurrentPricing.AutoScrollMinSize = new System.Drawing.Size(10, 0);
+            this.tableLayoutPanelCurrentPricing.AutoSize = true;
             this.tableLayoutPanelCurrentPricing.ColumnCount = 5;
-            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
+            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
             this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
+            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanelCurrentPricing.Location = new System.Drawing.Point(6, 48);
+            this.tableLayoutPanelCurrentPricing.MaximumSize = new System.Drawing.Size(761, 352);
             this.tableLayoutPanelCurrentPricing.Name = "tableLayoutPanelCurrentPricing";
+            this.tableLayoutPanelCurrentPricing.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.tableLayoutPanelCurrentPricing.RowCount = 1;
             this.tableLayoutPanelCurrentPricing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelCurrentPricing.Size = new System.Drawing.Size(761, 352);
