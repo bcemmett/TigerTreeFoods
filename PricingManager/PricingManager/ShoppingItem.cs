@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PosTerminal
+namespace PricingManager
 {
     class ShoppingItem
     {
