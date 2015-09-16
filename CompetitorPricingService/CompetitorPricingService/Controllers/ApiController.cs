@@ -16,7 +16,7 @@ namespace CompetitorPricingService.Controllers
             Decimal basePrice = Decimal.Parse(ourPrice, NumberStyles.Currency);
             Decimal competitorPrice = (Decimal)competitorSaving * basePrice;
             Thread.Sleep(random.Next(800, 2000));
-            return Content(competitorPrice.ToString("C"));
+            return Content(competitorPrice.ToString());
         }
 	}
 }
