@@ -17,6 +17,7 @@ namespace PricingManager
         {
             InitializeComponent();
             tableLayoutPanelCurrentPricing.RowStyles.Clear();
+            UpdateCurrentPricesGridFromDatabase();
         }
 
         private void buttonCancelAllOffers_Click(object sender, EventArgs e)
@@ -27,6 +28,11 @@ namespace PricingManager
         }
 
         private void buttonLoadCurrentPricingData_Click(object sender, EventArgs e)
+        {
+            UpdateCurrentPricesGridFromDatabase();
+        }
+
+        private void UpdateCurrentPricesGridFromDatabase()
         {
             var connectionString = ConfigurationManager.ConnectionStrings["LiveDb"].ConnectionString;
             using (var conn = new SqlConnection(connectionString))
@@ -41,11 +47,11 @@ namespace PricingManager
                     {
                         var item = new ShoppingItem
                         {
-                            ItemId = (int) reader["ItemId"],
-                            Barcode = (string) reader["Barcode"],
-                            RegularPrice = (Decimal) reader["RegularPrice"],
-                            OfferPrice = reader["OfferPrice"] == DBNull.Value ? null : (Decimal?) reader["OfferPrice"],
-                            TillDescription = (string) reader["TillDescription"]
+                            ItemId = (int)reader["ItemId"],
+                            Barcode = (string)reader["Barcode"],
+                            RegularPrice = (Decimal)reader["RegularPrice"],
+                            OfferPrice = reader["OfferPrice"] == DBNull.Value ? null : (Decimal?)reader["OfferPrice"],
+                            TillDescription = (string)reader["TillDescription"]
                         };
                         m_currentPrices.Add(item);
                     }
