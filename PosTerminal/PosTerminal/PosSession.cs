@@ -113,7 +113,7 @@ namespace PosTerminal
         {
             tableLayoutPanelShoppingItems.Controls.Clear();
             tableLayoutPanelShoppingItems.RowCount = 1;
-            labelTotal.Text = String.Empty;
+            labelTotal.Text = "£0.00";
             richTextBoxLastScanned.Text = String.Empty;
             m_ShoppingItems.Clear();
         }
