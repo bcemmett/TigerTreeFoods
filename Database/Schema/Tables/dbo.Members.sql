@@ -13,3 +13,5 @@ CREATE TABLE [dbo].[Members]
 GO
 ALTER TABLE [dbo].[Members] ADD CONSTRAINT [PK_Members_MemberId] PRIMARY KEY CLUSTERED  ([MemberId]) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[Members] ADD CONSTRAINT [FK_FavouriteItem] FOREIGN KEY ([FavouriteProduct]) REFERENCES [dbo].[CurrentPrices] ([ItemId])
+GO
