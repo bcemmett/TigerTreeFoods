@@ -4,8 +4,9 @@ CREATE TABLE [dbo].[CurrentPrices]
 [Barcode] [nvarchar] (30) COLLATE Latin1_General_CI_AS NOT NULL,
 [RegularPrice] [money] NOT NULL,
 [OfferPrice] [money] NULL,
-[TillDescription] [nvarchar] (100) COLLATE Latin1_General_CI_AS NOT NULL
-) ON [PRIMARY]
+[TillDescription] [nvarchar] (100) COLLATE Latin1_General_CI_AS NOT NULL,
+[Image] [varbinary] (max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[CurrentPrices] ADD CONSTRAINT [Unique_Barcode] UNIQUE NONCLUSTERED  ([Barcode]) ON [PRIMARY]
 
