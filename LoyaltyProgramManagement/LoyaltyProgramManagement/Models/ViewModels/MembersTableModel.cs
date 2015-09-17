@@ -9,6 +9,7 @@ namespace LoyaltyProgramManagement.Models.ViewModels
         public string City { get; set; }
         public bool RecentTransactions { get; set; }
         public string MembershipCode { get; set; }
+        public int ResultsToDisplay { get; set; }
         public List<MemberModel> Members { get; set; }
     }
 }

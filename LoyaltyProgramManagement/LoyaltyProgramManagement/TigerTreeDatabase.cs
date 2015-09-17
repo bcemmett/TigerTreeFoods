@@ -7,22 +7,19 @@ namespace LoyaltyProgramManagement
 {
     public class TigerTreeDatabase
     {
-        public List<Member> SearchMembers(string firstName, string lastName, string city, string membershipCode, bool recentTransactions)
+        public List<Member> SearchMembers(int resultsToFetch, string firstName, string lastName, string city, string membershipCode, bool recentTransactions)
         {
-            var members = new List<Member>();
             using (var db = new TigerTreeFoodsContext())
             {
-                members = db.Members.
+                IEnumerable<Member> members = db.Members.
                     Where(m => 
                         (m.FirstName == firstName || firstName == null || firstName == String.Empty)
                         && (m.LastName == lastName || lastName == null || lastName == String.Empty)
                         && (m.City == city || city == null || city == String.Empty)
                         && (m.MembershipCode == membershipCode || membershipCode == null || membershipCode == String.Empty)
-                    )
-                    .Take(50)
-                    .ToList();
+                    );
+                return members.Take(resultsToFetch).ToList();
             }
-            return members;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace LoyaltyProgramManagement.Controllers
         public ActionResult Members(MembersTableModel model)
         {
             var db = new TigerTreeDatabase();
-            List<Member> members = db.SearchMembers(model.FirstName, model.LastName, model.City, model.MembershipCode, model.RecentTransactions);
+            List<Member> members = db.SearchMembers(model.ResultsToDisplay, model.FirstName, model.LastName, model.City, model.MembershipCode, model.RecentTransactions);
             model.Members = members.Select(m => m.ToMemberModel()).ToList();
             return View(model);
         }

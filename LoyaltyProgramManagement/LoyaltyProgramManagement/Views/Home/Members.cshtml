@@ -1,7 +1,16 @@
 ﻿@model LoyaltyProgramManagement.Models.ViewModels.MembersTableModel
 @{
     ViewBag.Title = "Member search";
+    List<SelectListItem> resultsToDisplayList = new List<SelectListItem>
+    {
+        new SelectListItem {Value = "10", Text = "10"},
+        new SelectListItem {Value = "20", Text = "20"},
+        new SelectListItem {Value = "50", Text = "50"},
+        new SelectListItem {Value = "100", Text = "100"}
+    };
 }
+
+
 <div class="row" id="searchSettings">
     @using (Html.BeginForm())
     {
@@ -25,6 +34,10 @@
             <tr>
                 <td>@Html.LabelFor(m => m.RecentTransactions)</td>
                 <td>@Html.CheckBoxFor(m => m.RecentTransactions)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ResultsToDisplay)</td>
+                <td>@Html.DropDownListFor(m => m.ResultsToDisplay, resultsToDisplayList)</td>
             </tr>
             <tr>
                 <td></td>
