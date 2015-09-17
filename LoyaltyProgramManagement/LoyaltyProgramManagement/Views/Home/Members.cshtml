@@ -35,6 +35,9 @@
         </table>
     }
 </div>
-<div class="row" id="search-results">
-    @Html.Partial("MembersTable", @Model.Members)
-</div>
+@if (@Model.Members != null)
+{
+    <div class="row" id="search-results">
+        @Html.Partial("MembersTable", @Model.Members)
+    </div>
+}

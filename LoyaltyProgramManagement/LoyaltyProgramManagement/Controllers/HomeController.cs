@@ -16,45 +16,16 @@ namespace LoyaltyProgramManagement.Controllers
         [HttpPost]
         public ActionResult Members(MembersTableModel model)
         {
-            using (var db = new TigerTreeFoodsContext())
-            {
-                IEnumerable<Member> members = db.Members.Where(m => m.FirstName == model.FirstName).Take(50).ToList();
-                model.Members = members.Select(m => new MemberModel
-                {
-                    MemberId = m.MemberId,
-                    MembershipCode = m.MembershipCode,
-                    FirstName = m.FirstName,
-                    LastName = m.LastName,
-                    Address1 = m.Address1,
-                    Address2 = m.Address2,
-                    PostCode = m.PostCode,
-                    City = m.City
-                }).ToList();
-
-                return View(model);
-            }
+            var db = new TigerTreeDatabase();
+            List<Member> members = db.SearchMembers(model.FirstName, model.LastName, model.City, model.MembershipCode, model.RecentTransactions);
+            model.Members = members.Select(m => m.ToMemberModel()).ToList();
+            return View(model);
         }
         
         public ActionResult Members()
         {
-            using (var db = new TigerTreeFoodsContext())
-            {
-                IEnumerable<Member> members = db.Members.Take(50).ToList();
-                var model = new MembersTableModel();
-                model.Members = members.Select(m => new MemberModel
-                {
-                    MemberId = m.MemberId,
-                    MembershipCode = m.MembershipCode,
-                    FirstName = m.FirstName,
-                    LastName = m.LastName,
-                    Address1 = m.Address1,
-                    Address2 = m.Address2,
-                    PostCode = m.PostCode,
-                    City = m.City
-                }).ToList();
-                
-                return View(model);
-            }
+            var model = new MembersTableModel();
+            return View(model);
         }
     }
 }

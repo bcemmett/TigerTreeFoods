@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LoyaltyProgramManagement.Models.ViewModels;
 
 namespace LoyaltyProgramManagement.Models
 {
@@ -21,5 +22,20 @@ namespace LoyaltyProgramManagement.Models
         public int FavouriteProduct { get; set; }
         public virtual CurrentPrice CurrentPrice { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
+
+        public MemberModel ToMemberModel()
+        {
+            return new MemberModel
+            {
+                MemberId = MemberId,
+                MembershipCode = MembershipCode,
+                FirstName = FirstName,
+                LastName = LastName,
+                Address1 = Address1,
+                Address2 = Address2,
+                PostCode = PostCode,
+                City = City,
+            };
+        }
     }
 }
