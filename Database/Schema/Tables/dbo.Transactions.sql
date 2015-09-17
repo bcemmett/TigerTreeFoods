@@ -5,6 +5,8 @@ CREATE TABLE [dbo].[Transactions]
 [TotalPrice] [money] NOT NULL,
 [PurchaseDate] [datetime] NOT NULL
 ) ON [PRIMARY]
+CREATE UNIQUE NONCLUSTERED INDEX [NonClusteredIndex_TransactionId_MemberId_TotalPrice_PurchaseDate] ON [dbo].[Transactions] ([TransactionId], [MemberId]) INCLUDE ([PurchaseDate], [TotalPrice]) ON [PRIMARY]
+
 ALTER TABLE [dbo].[Transactions] ADD
 CONSTRAINT [FK_MemberId] FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Members] ([MemberId])
 GO
