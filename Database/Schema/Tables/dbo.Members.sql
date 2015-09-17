@@ -7,7 +7,8 @@ CREATE TABLE [dbo].[Members]
 [Address1] [nvarchar] (50) COLLATE Latin1_General_CI_AS NOT NULL,
 [Address2] [nvarchar] (50) COLLATE Latin1_General_CI_AS NULL,
 [PostCode] [nvarchar] (10) COLLATE Latin1_General_CI_AS NOT NULL,
-[City] [nvarchar] (30) COLLATE Latin1_General_CI_AS NOT NULL
+[City] [nvarchar] (30) COLLATE Latin1_General_CI_AS NOT NULL,
+[FavouriteProduct] [int] NOT NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[Members] ADD CONSTRAINT [PK_Members_MemberId] PRIMARY KEY CLUSTERED  ([MemberId]) ON [PRIMARY]
