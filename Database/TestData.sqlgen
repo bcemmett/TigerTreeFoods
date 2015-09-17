@@ -329,7 +329,7 @@ Version:3.0.1.560-->
           <FieldType>Generated</FieldType>
           <PrimaryKey>False</PrimaryKey>
           <ForeignKey>False</ForeignKey>
-          <Unique>False</Unique>
+          <Unique>True</Unique>
           <AllowsNulls>False</AllowsNulls>
           <SqlType>Varchar</SqlType>
           <Precision>0</Precision>
@@ -347,7 +347,7 @@ Version:3.0.1.560-->
               </element>
               <element>
                 <key type="string">Unique</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">Seed</key>
@@ -373,7 +373,7 @@ Version:3.0.1.560-->
           <FieldType>Generated</FieldType>
           <PrimaryKey>False</PrimaryKey>
           <ForeignKey>False</ForeignKey>
-          <Unique>False</Unique>
+          <Unique>True</Unique>
           <AllowsNulls>False</AllowsNulls>
           <SqlType>NVarchar</SqlType>
           <Precision>0</Precision>
@@ -391,7 +391,7 @@ Version:3.0.1.560-->
               </element>
               <element>
                 <key type="string">Unique</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">Seed</key>
@@ -413,7 +413,7 @@ Version:3.0.1.560-->
           <FieldType>Generated</FieldType>
           <PrimaryKey>False</PrimaryKey>
           <ForeignKey>False</ForeignKey>
-          <Unique>False</Unique>
+          <Unique>True</Unique>
           <AllowsNulls>False</AllowsNulls>
           <SqlType>NVarchar</SqlType>
           <Precision>0</Precision>
@@ -431,7 +431,7 @@ Version:3.0.1.560-->
               </element>
               <element>
                 <key type="string">Unique</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">Seed</key>
@@ -585,7 +585,7 @@ Version:3.0.1.560-->
           <FieldType>Generated</FieldType>
           <PrimaryKey>False</PrimaryKey>
           <ForeignKey>False</ForeignKey>
-          <Unique>False</Unique>
+          <Unique>True</Unique>
           <AllowsNulls>False</AllowsNulls>
           <SqlType>NVarchar</SqlType>
           <Precision>0</Precision>
@@ -603,7 +603,7 @@ Version:3.0.1.560-->
               </element>
               <element>
                 <key type="string">Unique</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">Seed</key>
@@ -620,47 +620,17 @@ Version:3.0.1.560-->
             </GeneratorProperties>
           </Generator>
         </value>
-      </Fields>
-      <ForeignKeyProperties type="List&lt;ForeignKeyProperty&gt;" version="1" />
-    </value>
-    <value version="1" type="SDGTable">
-      <TableType>Generated</TableType>
-      <PopulationDetails version="1" type="PopulationDetails">
-        <PopulationType>RowCount</PopulationType>
-        <RowCount>10648719</RowCount>
-        <ProportionTableExists>False</ProportionTableExists>
-        <Proportion>0</Proportion>
-        <TimeToPopulate>0</TimeToPopulate>
-      </PopulationDetails>
-      <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
-      <Included>True</Included>
-      <Append>False</Append>
-      <Name>TransactionItems</Name>
-      <Schema>dbo</Schema>
-      <Fields type="List&lt;SDGField&gt;" version="1">
         <value version="1" type="SDGField">
-          <Name>TransactionItemId</Name>
-          <FieldType>Default</FieldType>
-          <PrimaryKey>True</PrimaryKey>
-          <ForeignKey>False</ForeignKey>
+          <Name>FavouriteProduct</Name>
+          <FieldType>Generated</FieldType>
+          <PrimaryKey>False</PrimaryKey>
+          <ForeignKey>True</ForeignKey>
           <Unique>True</Unique>
           <AllowsNulls>False</AllowsNulls>
           <SqlType>Integer32</SqlType>
           <Precision>10</Precision>
           <Scale>0</Scale>
           <DefinedSize>4</DefinedSize>
-        </value>
-        <value version="1" type="SDGField">
-          <Name>TransactionId</Name>
-          <FieldType>Generated</FieldType>
-          <PrimaryKey>False</PrimaryKey>
-          <ForeignKey>True</ForeignKey>
-          <Unique>False</Unique>
-          <AllowsNulls>False</AllowsNulls>
-          <SqlType>Integer32</SqlType>
-          <Precision>10</Precision>
-          <Scale>0</Scale>
-          <DefinedSize>4</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.Generators.Others.FKInternalGenerator</GeneratorTypeName>
             <DisplayName>Foreign Key (automatic)</DisplayName>
@@ -669,87 +639,7 @@ Version:3.0.1.560-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Unique</key>
-                <value type="string">False</value>
-              </element>
-            </GeneratorProperties>
-          </Generator>
-        </value>
-        <value version="1" type="SDGField">
-          <Name>PricePaid</Name>
-          <FieldType>Generated</FieldType>
-          <PrimaryKey>False</PrimaryKey>
-          <ForeignKey>False</ForeignKey>
-          <Unique>False</Unique>
-          <AllowsNulls>False</AllowsNulls>
-          <SqlType>Money</SqlType>
-          <Precision>19</Precision>
-          <Scale>4</Scale>
-          <DefinedSize>8</DefinedSize>
-          <Generator version="1" type="GeneratorDetails">
-            <GeneratorTypeName>RedGate.SQLDataGenerator.Generators.Number.MoneyGenerator</GeneratorTypeName>
-            <DisplayName>money</DisplayName>
-            <Description>Generates money values</Description>
-            <CategoryName>SQL Type</CategoryName>
-            <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
-              <element>
-                <key type="string">Increment</key>
-                <value type="string">1.00</value>
-              </element>
-              <element>
-                <key type="string">UseSequence</key>
-                <value type="string">False</value>
-              </element>
-              <element>
-                <key type="string">Unique</key>
-                <value type="string">False</value>
-              </element>
-              <element>
-                <key type="string">MinValue</key>
-                <value type="string">0.50</value>
-              </element>
-              <element>
-                <key type="string">MaxValue</key>
-                <value type="string">18.00</value>
-              </element>
-              <element>
-                <key type="string">UseColumnOffset</key>
-                <value type="string">False</value>
-              </element>
-              <element>
-                <key type="string">Seed</key>
-                <value type="string">2050</value>
-              </element>
-              <element>
-                <key type="string">NullsAllowed</key>
-                <value type="string">False</value>
-              </element>
-              <element>
-                <key type="string">NullProportion</key>
-                <value type="string">0.01</value>
-              </element>
-            </GeneratorProperties>
-          </Generator>
-        </value>
-        <value version="1" type="SDGField">
-          <Name>ItemId</Name>
-          <FieldType>Generated</FieldType>
-          <PrimaryKey>False</PrimaryKey>
-          <ForeignKey>True</ForeignKey>
-          <Unique>False</Unique>
-          <AllowsNulls>False</AllowsNulls>
-          <SqlType>Integer32</SqlType>
-          <Precision>10</Precision>
-          <Scale>0</Scale>
-          <DefinedSize>4</DefinedSize>
-          <Generator version="1" type="GeneratorDetails">
-            <GeneratorTypeName>RedGate.SQLDataGenerator.Generators.Others.FKInternalGenerator</GeneratorTypeName>
-            <DisplayName>Foreign Key (automatic)</DisplayName>
-            <Description>Reference Foreign Key $FK for column $FKField</Description>
-            <CategoryName>SQL Type</CategoryName>
-            <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
-              <element>
-                <key type="string">Unique</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -758,19 +648,7 @@ Version:3.0.1.560-->
       <ForeignKeyProperties type="List&lt;ForeignKeyProperty&gt;" version="1">
         <value version="1" type="ForeignKeyProperty">
           <Fields type="List&lt;string&gt;" version="1">
-            <value type="string">ItemId</value>
-          </Fields>
-          <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
-          <MaxBuckets>1000</MaxBuckets>
-          <Seed>0</Seed>
-          <MinRepeats>1</MinRepeats>
-          <MaxRepeats>10</MaxRepeats>
-          <NullsAllowed>False</NullsAllowed>
-          <NullProportion>0.01</NullProportion>
-        </value>
-        <value version="1" type="ForeignKeyProperty">
-          <Fields type="List&lt;string&gt;" version="1">
-            <value type="string">TransactionId</value>
+            <value type="string">FavouriteProduct</value>
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
@@ -814,7 +692,7 @@ Version:3.0.1.560-->
           <FieldType>Generated</FieldType>
           <PrimaryKey>False</PrimaryKey>
           <ForeignKey>True</ForeignKey>
-          <Unique>False</Unique>
+          <Unique>True</Unique>
           <AllowsNulls>True</AllowsNulls>
           <SqlType>Integer32</SqlType>
           <Precision>10</Precision>
@@ -828,7 +706,7 @@ Version:3.0.1.560-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Unique</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -1016,27 +894,6 @@ VALUES  ( N'6154817490341574', 1.20, NULL, N'Pack chocolate biscuits' ),
         ( N'3400487197684118', 2.30, 1.90, N'Strong blue cheese' ),
         ( N'3174487154933405', 7.99, NULL, N'Bottle red wine' ),
         ( N'5471548213554009', 1.80, NULL, N'Large pack butter' )</Script>
-    </value>
-    <value version="1" type="SQLScript">
-      <SQLScriptType>InternalSQLScript</SQLScriptType>
-      <Name>Correct TransactionItem prices</Name>
-      <Script>UPDATE  ti
-SET     ti.PricePaid = ( SELECT TOP 1
-                                cp.RegularPrice
-                         FROM   dbo.CurrentPrices cp
-                         WHERE  ti.ItemId = cp.ItemId
-                       )
-FROM    dbo.TransactionItems ti</Script>
-    </value>
-    <value version="1" type="SQLScript">
-      <SQLScriptType>InternalSQLScript</SQLScriptType>
-      <Name>Correct total transaction cost</Name>
-      <Script>UPDATE  t
-SET     t.TotalPrice = ( SELECT SUM(ti.PricePaid)
-                         FROM   dbo.TransactionItems ti
-                         WHERE  ti.TransactionId = t.TransactionId
-                       )
-FROM    dbo.Transactions t</Script>
     </value>
   </PostScripts>
   <IsRefresh>False</IsRefresh>
