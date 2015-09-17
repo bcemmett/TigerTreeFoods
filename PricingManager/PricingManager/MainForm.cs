@@ -156,7 +156,7 @@ namespace PricingManager
                 using (var cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT ItemId, TillDescription, RegularPrice, OfferPrice, Barcode FROM CurrentPrices WHERE OfferPrice IS NOT NULL";
+                    cmd.CommandText = "SELECT ItemId, TillDescription, RegularPrice, OfferPrice, Barcode, Image FROM CurrentPrices WHERE OfferPrice IS NOT NULL";
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
