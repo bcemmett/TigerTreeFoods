@@ -8,7 +8,12 @@ namespace LoyaltyProgramManagement.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public RedirectResult Index()
+        {
+            return new RedirectResult("Home/Members");
+        }
+        
+        public ActionResult Members()
         {
             using (var db = new TigerTreeFoodsContext())
             {
