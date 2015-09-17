@@ -130,6 +130,8 @@
     <Compile Include="Models\EF\Member.cs" />
     <Compile Include="Models\EF\TigerTreeFoodsContext.cs" />
     <Compile Include="Models\EF\Transaction.cs" />
+    <Compile Include="Models\ViewModels\MembersTableModel.cs" />
+    <Compile Include="Models\ViewModels\MemberModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +163,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\MembersTable.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
