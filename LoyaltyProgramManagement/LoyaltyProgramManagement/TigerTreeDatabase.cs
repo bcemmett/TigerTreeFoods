@@ -11,6 +11,12 @@ namespace LoyaltyProgramManagement
         {
             using (var db = new TigerTreeFoodsContext())
             {
+                if (!String.IsNullOrWhiteSpace(membershipCode))
+                {
+                    IEnumerable<Member> membersByMembershipCode = db.Members.Where(m => m.MembershipCode == membershipCode);
+                    return membersByMembershipCode.ToList();
+                }
+
                 IEnumerable<Member> members = db.Members
                     .Where(m => 
                         (m.FirstName == firstName || firstName == null || firstName == String.Empty)
