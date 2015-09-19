@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LoyaltyProgramManagement.Models.ViewModels;
 
 namespace LoyaltyProgramManagement.Models
 {
@@ -17,5 +18,17 @@ namespace LoyaltyProgramManagement.Models
         public string TillDescription { get; set; }
         public byte[] Image { get; set; }
         public virtual ICollection<Member> Members { get; set; }
+
+        public ProductModel ToProductModel()
+        {
+            return new ProductModel
+            {
+                ItemId = ItemId,
+                Barcode = Barcode,
+                RegularPrice = RegularPrice,
+                OfferPrice = OfferPrice,
+                TillDescription = TillDescription
+            };
+        }
     }
 }

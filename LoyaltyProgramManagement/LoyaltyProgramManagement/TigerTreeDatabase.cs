@@ -37,5 +37,23 @@ namespace LoyaltyProgramManagement
                 return members.Take(resultsToFetch).ToList();
             }
         }
+
+        public List<CurrentPrice> SearchProducts(string barcode, string description)
+        {
+            using (var db = new TigerTreeFoodsContext())
+            {
+                if (!String.IsNullOrWhiteSpace(barcode))
+                {
+                    return db.CurrentPrices.Where(p => p.Barcode == barcode).ToList();
+                }
+
+                if (!String.IsNullOrWhiteSpace(description))
+                {
+                    return db.CurrentPrices.Where(p => p.TillDescription.Contains(description)).Take(10).ToList();
+                }
+
+                return new List<CurrentPrice>();
+            }
+        } 
     }
 }

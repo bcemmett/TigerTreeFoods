@@ -1,0 +1,20 @@
+﻿@model List<LoyaltyProgramManagement.Models.ViewModels.ProductModel>
+<table data-toggle="table">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Barcode</th>
+            <th>Current Price</th>
+            <th>Offer Price</th>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.TillDescription</td>
+                <td>@product.Barcode</td>
+                <td>@product.RegularPrice</td>
+                <td>@product.OfferPrice</td>
+            </tr>
+        }
+    </thead>
+</table>
