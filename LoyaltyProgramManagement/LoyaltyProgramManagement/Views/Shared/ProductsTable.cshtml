@@ -12,8 +12,8 @@
             <tr>
                 <td>@product.TillDescription</td>
                 <td>@product.Barcode</td>
-                <td>@product.RegularPrice</td>
-                <td>@product.OfferPrice</td>
+                <td>@product.RegularPrice.ToString("C")</td>
+                <td>@Html.Raw(product.OfferPrice.HasValue ? product.OfferPrice.Value.ToString("C") : "None")</td>
             </tr>
         }
     </thead>
