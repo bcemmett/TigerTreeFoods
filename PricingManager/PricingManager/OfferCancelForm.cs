@@ -24,7 +24,7 @@ namespace PricingManager
             m_cmd = new SqlCommand();
             m_cmd.Connection = m_conn;
             m_cmd.Transaction = m_transaction;
-            m_cmd.CommandText = "UPDATE CurrentPrices SET OfferPrice = null";
+            m_cmd.CommandText = "UPDATE Products SET OfferPrice = null";
             m_cmd.ExecuteNonQuery();
         }
 
