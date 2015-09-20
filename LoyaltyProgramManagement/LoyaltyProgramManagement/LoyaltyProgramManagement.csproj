@@ -123,7 +123,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EF\CurrentPrice.cs" />
+    <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\Mapping\CurrentPriceMap.cs" />
     <Compile Include="Models\EF\Mapping\MemberMap.cs" />
     <Compile Include="Models\EF\Mapping\TransactionMap.cs" />

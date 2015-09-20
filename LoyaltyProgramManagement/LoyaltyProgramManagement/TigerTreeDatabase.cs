@@ -38,21 +38,21 @@ namespace LoyaltyProgramManagement
             }
         }
 
-        public List<CurrentPrice> SearchProducts(string barcode, string description)
+        public List<Product> SearchProducts(string barcode, string description)
         {
             using (var db = new TigerTreeFoodsContext())
             {
                 if (!String.IsNullOrWhiteSpace(barcode))
                 {
-                    return db.CurrentPrices.Where(p => p.Barcode == barcode).ToList();
+                    return db.Products.Where(p => p.Barcode == barcode).ToList();
                 }
 
                 if (!String.IsNullOrWhiteSpace(description))
                 {
-                    return db.CurrentPrices.Where(p => p.TillDescription.Contains(description)).Take(10).ToList();
+                    return db.Products.Where(p => p.TillDescription.Contains(description)).Take(10).ToList();
                 }
 
-                return new List<CurrentPrice>();
+                return new List<Product>();
             }
         } 
     }

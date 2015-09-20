@@ -3,12 +3,12 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace LoyaltyProgramManagement.Models.Mapping
 {
-    public class CurrentPriceMap : EntityTypeConfiguration<CurrentPrice>
+    public class ProductMap : EntityTypeConfiguration<Product>
     {
-        public CurrentPriceMap()
+        public ProductMap()
         {
             // Primary Key
-            this.HasKey(t => t.ItemId);
+            this.HasKey(t => t.ProductId);
 
             // Properties
             this.Property(t => t.Barcode)
@@ -20,8 +20,8 @@ namespace LoyaltyProgramManagement.Models.Mapping
                 .HasMaxLength(100);
 
             // Table & Column Mappings
-            this.ToTable("CurrentPrices");
-            this.Property(t => t.ItemId).HasColumnName("ItemId");
+            this.ToTable("Products");
+            this.Property(t => t.ProductId).HasColumnName("ProductId");
             this.Property(t => t.Barcode).HasColumnName("Barcode");
             this.Property(t => t.RegularPrice).HasColumnName("RegularPrice");
             this.Property(t => t.OfferPrice).HasColumnName("OfferPrice");

@@ -48,12 +48,12 @@ namespace LoyaltyProgramManagement.Models.Mapping
             this.Property(t => t.Address2).HasColumnName("Address2");
             this.Property(t => t.PostCode).HasColumnName("PostCode");
             this.Property(t => t.City).HasColumnName("City");
-            this.Property(t => t.FavouriteProduct).HasColumnName("FavouriteProduct");
+            this.Property(t => t.FavouriteProductId).HasColumnName("FavouriteProductId");
 
             // Relationships
-            this.HasRequired(t => t.CurrentPrice)
+            this.HasRequired(t => t.FavouriteProduct)
                 .WithMany(t => t.Members)
-                .HasForeignKey(d => d.FavouriteProduct);
+                .HasForeignKey(d => d.FavouriteProductId);
 
         }
     }

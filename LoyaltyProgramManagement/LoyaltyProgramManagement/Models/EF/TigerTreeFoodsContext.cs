@@ -16,13 +16,13 @@ namespace LoyaltyProgramManagement.Models
         {
         }
 
-        public DbSet<CurrentPrice> CurrentPrices { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new CurrentPriceMap());
+            modelBuilder.Configurations.Add(new ProductMap());
             modelBuilder.Configurations.Add(new MemberMap());
             modelBuilder.Configurations.Add(new TransactionMap());
         }

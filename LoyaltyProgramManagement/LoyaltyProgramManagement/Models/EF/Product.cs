@@ -4,14 +4,14 @@ using LoyaltyProgramManagement.Models.ViewModels;
 
 namespace LoyaltyProgramManagement.Models
 {
-    public partial class CurrentPrice
+    public partial class Product
     {
-        public CurrentPrice()
+        public Product()
         {
             this.Members = new List<Member>();
         }
 
-        public int ItemId { get; set; }
+        public int ProductId { get; set; }
         public string Barcode { get; set; }
         public decimal RegularPrice { get; set; }
         public Nullable<decimal> OfferPrice { get; set; }
@@ -23,7 +23,7 @@ namespace LoyaltyProgramManagement.Models
         {
             return new ProductModel
             {
-                ItemId = ItemId,
+                ProductId = ProductId,
                 Barcode = Barcode,
                 RegularPrice = RegularPrice,
                 OfferPrice = OfferPrice,

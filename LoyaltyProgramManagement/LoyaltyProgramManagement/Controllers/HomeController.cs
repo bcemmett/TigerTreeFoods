@@ -17,7 +17,7 @@ namespace LoyaltyProgramManagement.Controllers
         public ActionResult Products(ProductsTableModel model)
         {
             var db = new TigerTreeDatabase();
-            List<CurrentPrice> products = db.SearchProducts(model.Barcode, model.Description);
+            List<Product> products = db.SearchProducts(model.Barcode, model.Description);
             model.Products = products.Select(p => p.ToProductModel()).ToList();
             return View(model);
         }

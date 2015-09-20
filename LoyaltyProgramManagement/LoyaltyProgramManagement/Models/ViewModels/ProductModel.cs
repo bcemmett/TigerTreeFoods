@@ -8,6 +8,6 @@ namespace LoyaltyProgramManagement.Models.ViewModels
         public string Barcode { get; set; }
         public Decimal RegularPrice { get; set; }
         public Decimal? OfferPrice { get; set; }
-        public int ItemId { get; set; }
+        public int ProductId { get; set; }
     }
 }

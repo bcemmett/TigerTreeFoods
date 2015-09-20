@@ -19,8 +19,8 @@ namespace LoyaltyProgramManagement.Models
         public string Address2 { get; set; }
         public string PostCode { get; set; }
         public string City { get; set; }
-        public int FavouriteProduct { get; set; }
-        public virtual CurrentPrice CurrentPrice { get; set; }
+        public int FavouriteProductId { get; set; }
+        public virtual Product FavouriteProduct { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
 
         public MemberModel ToMemberModel()
