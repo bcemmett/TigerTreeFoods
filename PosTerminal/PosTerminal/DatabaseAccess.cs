@@ -17,6 +17,7 @@ namespace PosTerminal
                 using (var cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
+                    cmd.CommandTimeout = 300;
                     cmd.CommandText = @"
                         SELECT TOP 1
                                 ProductId ,
