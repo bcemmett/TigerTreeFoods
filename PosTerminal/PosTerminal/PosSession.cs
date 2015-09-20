@@ -48,7 +48,7 @@ namespace PosTerminal
             {
                 newItem = db.GetItemDetails(m_barcode.ToString());
             }
-            catch (Exception)
+            catch (ArgumentException)
             {
                 richTextBoxLastScanned.Text = "Couldn't find item. Seek assistance.";
                 return;

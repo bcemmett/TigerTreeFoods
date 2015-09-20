@@ -34,12 +34,12 @@ namespace PosLoadGenerator
                     cmd.Connection = conn;
                     cmd.CommandText = @"
                         SELECT TOP 1
-                                ItemId ,
+                                ProductId ,
                                 Barcode ,
                                 RegularPrice ,
                                 OfferPrice ,
                                 TillDescription
-                        FROM    dbo.CurrentPrices
+                        FROM    dbo.Products
                         WHERE   Barcode = @barcode";
                     cmd.Parameters.AddWithValue("barcode", barcode);
                     cmd.CommandTimeout = 300;

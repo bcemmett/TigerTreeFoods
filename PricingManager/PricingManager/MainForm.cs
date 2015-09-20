@@ -45,13 +45,13 @@ namespace PricingManager
                 using (var cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT ItemId, TillDescription, RegularPrice, OfferPrice, Barcode FROM CurrentPrices";
+                    cmd.CommandText = "SELECT ProductId, TillDescription, RegularPrice, OfferPrice, Barcode FROM Products";
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
                         var item = new ShoppingItem
                         {
-                            ItemId = (int)reader["ItemId"],
+                            ProductId = (int)reader["ProductId"],
                             Barcode = (string)reader["Barcode"],
                             RegularPrice = (Decimal)reader["RegularPrice"],
                             OfferPrice = reader["OfferPrice"] == DBNull.Value ? null : (Decimal?)reader["OfferPrice"],
@@ -156,7 +156,7 @@ namespace PricingManager
                 using (var cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT ItemId, TillDescription, RegularPrice, OfferPrice, Barcode, Image FROM CurrentPrices WHERE OfferPrice IS NOT NULL";
+                    cmd.CommandText = "SELECT ProductId, TillDescription, RegularPrice, OfferPrice, Barcode, Image FROM Products WHERE OfferPrice IS NOT NULL";
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
@@ -166,7 +166,7 @@ namespace PricingManager
                         }
                         var item = new CompetitorItem
                         {
-                            ItemId = (int)reader["ItemId"],
+                            ProductId = (int)reader["ProductId"],
                             Barcode = (string)reader["Barcode"],
                             RegularPrice = (Decimal)reader["RegularPrice"],
                             OfferPrice = (Decimal?)reader["OfferPrice"],

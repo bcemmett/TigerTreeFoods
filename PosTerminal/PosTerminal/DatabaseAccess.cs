@@ -19,12 +19,12 @@ namespace PosTerminal
                     cmd.Connection = conn;
                     cmd.CommandText = @"
                         SELECT TOP 1
-                                ItemId ,
+                                ProductId ,
                                 Barcode ,
                                 RegularPrice ,
                                 OfferPrice ,
                                 TillDescription
-                        FROM    dbo.CurrentPrices
+                        FROM    dbo.Products
                         WHERE   Barcode = N'"
                         + barcode
                         + "'";
@@ -35,7 +35,7 @@ namespace PosTerminal
                     }
                     while (reader.Read())
                     {
-                        shoppingItem.ItemId = (int) reader["ItemId"];
+                        shoppingItem.ProductId = (int) reader["ProductId"];
                         shoppingItem.Barcode = (string) reader["Barcode"];
                         shoppingItem.RegularPrice = (Decimal) reader["RegularPrice"];
                         shoppingItem.OfferPrice = reader["OfferPrice"] == DBNull.Value ? null : (Decimal?) reader["OfferPrice"];
