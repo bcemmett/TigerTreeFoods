@@ -32,12 +32,14 @@ namespace PosTerminal
         {
             this.richTextBoxLastScanned = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanelShoppingItems = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonPayNow = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.labelTotal = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBoxLoadingSpinny = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonPayNow = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoadingSpinny)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBoxLastScanned
@@ -70,36 +72,6 @@ namespace PosTerminal
             this.tableLayoutPanelShoppingItems.Size = new System.Drawing.Size(369, 324);
             this.tableLayoutPanelShoppingItems.TabIndex = 2;
             // 
-            // buttonPayNow
-            // 
-            this.buttonPayNow.BackColor = System.Drawing.Color.Green;
-            this.buttonPayNow.BackgroundImage = global::PosTerminal.Properties.Resources.green;
-            this.buttonPayNow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonPayNow.Font = new System.Drawing.Font("MV Boli", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPayNow.ForeColor = System.Drawing.Color.Snow;
-            this.buttonPayNow.Location = new System.Drawing.Point(399, 266);
-            this.buttonPayNow.Name = "buttonPayNow";
-            this.buttonPayNow.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.buttonPayNow.Size = new System.Drawing.Size(342, 126);
-            this.buttonPayNow.TabIndex = 3;
-            this.buttonPayNow.Text = "Pay Now";
-            this.buttonPayNow.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonPayNow.UseVisualStyleBackColor = false;
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.BackgroundImage = global::PosTerminal.Properties.Resources.red;
-            this.buttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCancel.Font = new System.Drawing.Font("MV Boli", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonCancel.Location = new System.Drawing.Point(224, 342);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(157, 50);
-            this.buttonCancel.TabIndex = 4;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
@@ -111,35 +83,16 @@ namespace PosTerminal
             this.labelTotal.TabIndex = 6;
             this.labelTotal.Text = "£0.00";
             // 
-            // button1
+            // pictureBoxLoadingSpinny
             // 
-            this.button1.BackgroundImage = global::PosTerminal.Properties.Resources.blue;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Location = new System.Drawing.Point(399, 149);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.button1.Size = new System.Drawing.Size(100, 100);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Keypad";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::PosTerminal.Properties.Resources.blue;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button2.Location = new System.Drawing.Point(520, 149);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.button2.Size = new System.Drawing.Size(100, 100);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Loyalty";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.pictureBoxLoadingSpinny.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBoxLoadingSpinny.Image = global::PosTerminal.Properties.Resources.ajax_loader;
+            this.pictureBoxLoadingSpinny.Location = new System.Drawing.Point(662, 18);
+            this.pictureBoxLoadingSpinny.Name = "pictureBoxLoadingSpinny";
+            this.pictureBoxLoadingSpinny.Size = new System.Drawing.Size(73, 71);
+            this.pictureBoxLoadingSpinny.TabIndex = 10;
+            this.pictureBoxLoadingSpinny.TabStop = false;
+            this.pictureBoxLoadingSpinny.Visible = false;
             // 
             // button3
             // 
@@ -156,11 +109,72 @@ namespace PosTerminal
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::PosTerminal.Properties.Resources.blue;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button2.Location = new System.Drawing.Point(520, 149);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.button2.Size = new System.Drawing.Size(100, 100);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Loyalty";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::PosTerminal.Properties.Resources.blue;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.Location = new System.Drawing.Point(399, 149);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.button1.Size = new System.Drawing.Size(100, 100);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Keypad";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackgroundImage = global::PosTerminal.Properties.Resources.red;
+            this.buttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCancel.Font = new System.Drawing.Font("MV Boli", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonCancel.Location = new System.Drawing.Point(224, 342);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(157, 50);
+            this.buttonCancel.TabIndex = 4;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonPayNow
+            // 
+            this.buttonPayNow.BackColor = System.Drawing.Color.Green;
+            this.buttonPayNow.BackgroundImage = global::PosTerminal.Properties.Resources.green;
+            this.buttonPayNow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonPayNow.Font = new System.Drawing.Font("MV Boli", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPayNow.ForeColor = System.Drawing.Color.Snow;
+            this.buttonPayNow.Location = new System.Drawing.Point(399, 266);
+            this.buttonPayNow.Name = "buttonPayNow";
+            this.buttonPayNow.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.buttonPayNow.Size = new System.Drawing.Size(342, 126);
+            this.buttonPayNow.TabIndex = 3;
+            this.buttonPayNow.Text = "Pay Now";
+            this.buttonPayNow.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonPayNow.UseVisualStyleBackColor = false;
+            // 
             // PosSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(761, 408);
+            this.Controls.Add(this.pictureBoxLoadingSpinny);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -174,6 +188,7 @@ namespace PosTerminal
             this.Name = "PosSession";
             this.Text = "Welcome to Tiger Tree Foods!";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosSession_KeyPress);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoadingSpinny)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,6 +204,7 @@ namespace PosTerminal
         private Button button1;
         private Button button2;
         private Button button3;
+        private PictureBox pictureBoxLoadingSpinny;
 
     }
 }

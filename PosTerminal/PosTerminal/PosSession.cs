@@ -45,6 +45,8 @@ namespace PosTerminal
 
         private void ProcessScannedItem(string barcode)
         {
+            pictureBoxLoadingSpinny.Visible = true;
+            richTextBoxLastScanned.Text = "Searching for item...";
             Task.Run(() => LookupScannedItem(barcode));
         }
 
@@ -71,6 +73,7 @@ namespace PosTerminal
             UpdateMostRecentItem(item);
             AddShoppingItemToList(item);
             UpdateTotalCost();
+            pictureBoxLoadingSpinny.Visible = false;
         }
 
 
