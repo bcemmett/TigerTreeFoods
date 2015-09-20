@@ -27,11 +27,11 @@ Version:3.0.1.560-->
       <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
       <Included>True</Included>
       <Append>False</Append>
-      <Name>CurrentPrices</Name>
+      <Name>Products</Name>
       <Schema>dbo</Schema>
       <Fields type="List&lt;SDGField&gt;" version="1">
         <value version="1" type="SDGField">
-          <Name>ItemId</Name>
+          <Name>ProductId</Name>
           <FieldType>Default</FieldType>
           <PrimaryKey>True</PrimaryKey>
           <ForeignKey>False</ForeignKey>
@@ -621,7 +621,7 @@ Version:3.0.1.560-->
           </Generator>
         </value>
         <value version="1" type="SDGField">
-          <Name>FavouriteProduct</Name>
+          <Name>FavouriteProductId</Name>
           <FieldType>Generated</FieldType>
           <PrimaryKey>False</PrimaryKey>
           <ForeignKey>True</ForeignKey>
@@ -648,7 +648,7 @@ Version:3.0.1.560-->
       <ForeignKeyProperties type="List&lt;ForeignKeyProperty&gt;" version="1">
         <value version="1" type="ForeignKeyProperty">
           <Fields type="List&lt;string&gt;" version="1">
-            <value type="string">FavouriteProduct</value>
+            <value type="string">FavouriteProductId</value>
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
@@ -879,14 +879,14 @@ Version:3.0.1.560-->
     <value version="1" type="SQLScript">
       <SQLScriptType>InternalSQLScript</SQLScriptType>
       <Name>Offers</Name>
-      <Script>UPDATE  CurrentPrices
+      <Script>UPDATE  Products
 SET     OfferPrice = 0.9 * RegularPrice
-WHERE   ItemId % 8 = 0</Script>
+WHERE   ProductId % 8 = 0</Script>
     </value>
     <value version="1" type="SQLScript">
       <SQLScriptType>InternalSQLScript</SQLScriptType>
       <Name>Scannable items</Name>
-      <Script>INSERT  INTO dbo.CurrentPrices
+      <Script>INSERT  INTO dbo.Products
         ( Barcode, RegularPrice, OfferPrice, TillDescription )
 VALUES  ( N'6154817490341574', 1.20, NULL, N'Pack chocolate biscuits' ),
         ( N'9418745160124803', 0.45, 0.30, N'Closed cup mushrooms' ),
@@ -900,13 +900,13 @@ VALUES  ( N'6154817490341574', 1.20, NULL, N'Pack chocolate biscuits' ),
       <Name>Searchable apples</Name>
       <Script>DECLARE @data VARBINARY(MAX) = ( SELECT TOP 1
                                         Image
-                                 FROM   dbo.CurrentPrices
-                                 WHERE  ItemId = 1
+                                 FROM   dbo.Products
+                                 WHERE  ProductId = 1
                                )
 
 DECLARE @biggerdata VARBINARY(MAX) = CONVERT(VARBINARY(MAX), REPLICATE(@data, 32))
 
-INSERT  INTO dbo.CurrentPrices
+INSERT  INTO dbo.Products
         ( Barcode, RegularPrice, OfferPrice, TillDescription, Image )
 VALUES
         ( N'3150812445206845', 0.40, NULL, N'Honeycrisp apples', @biggerdata ),
