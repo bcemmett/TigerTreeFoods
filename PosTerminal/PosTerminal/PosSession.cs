@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PosTerminal
@@ -11,6 +12,7 @@ namespace PosTerminal
     {
         private StringBuilder m_barcode = new StringBuilder(16);
         private List<ShoppingItem> m_ShoppingItems = new List<ShoppingItem>();
+        private delegate void UpdateWithScannedProductCallback(ShoppingItem item);
         
         public PosSession()
         {
@@ -35,29 +37,42 @@ namespace PosTerminal
 
             if (e.KeyChar == (char) Keys.LineFeed)
             {
-                ProcessNewItem();
+                string barcode = m_barcode.ToString();
                 m_barcode.Clear();
+                ProcessScannedItem(barcode);
             }
         }
 
-        private void ProcessNewItem()
+        private void ProcessScannedItem(string barcode)
+        {
+            Task.Run(() => LookupScannedItem(barcode));
+        }
+
+        private void LookupScannedItem(string barcode)
         {
             var db = new DatabaseAccess();
             ShoppingItem newItem = new ShoppingItem();
             try
             {
-                newItem = db.GetItemDetails(m_barcode.ToString());
+                newItem = db.GetItemDetails(barcode);
             }
-            catch (ArgumentException)
+            catch (Exception)
             {
                 richTextBoxLastScanned.Text = "Couldn't find item. Seek assistance.";
                 return;
             }
-            m_ShoppingItems.Add(newItem);
-            UpdateMostRecentItem(newItem);
-            AddShoppingItemToList(newItem);
+            UpdateWithScannedProductCallback update = new UpdateWithScannedProductCallback(UpdateWithScannedProduct);
+            this.Invoke(update, new object[] { newItem });
+        }
+
+        private void UpdateWithScannedProduct(ShoppingItem item)
+        {
+            m_ShoppingItems.Add(item);
+            UpdateMostRecentItem(item);
+            AddShoppingItemToList(item);
             UpdateTotalCost();
         }
+
 
         private void UpdateTotalCost()
         {
