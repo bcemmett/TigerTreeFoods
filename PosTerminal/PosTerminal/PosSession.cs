@@ -158,5 +158,22 @@ namespace PosTerminal
                 Application.Exit();
             }
         }
+
+        private void buttonKeypad_Click(object sender, EventArgs e)
+        {
+            string[] barcodes =
+            {
+                "6154817490341574",
+                "9418745160124803",
+                "2154187031946714",
+                "3400487197684118",
+                "3174487154933405",
+                "5471548213554009"
+            };
+            var rnd = new Random();
+            int i = rnd.Next(0, barcodes.Length - 1);
+            string barcode = barcodes[i];
+            ProcessScannedItem(barcode);
+        }
     }
 }

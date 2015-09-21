@@ -37,7 +37,7 @@ namespace PosTerminal
             this.pictureBoxLoadingSpinny = new System.Windows.Forms.PictureBox();
             this.buttonHelp = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonKeypad = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonPayNow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoadingSpinny)).BeginInit();
@@ -130,22 +130,23 @@ namespace PosTerminal
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonKeypad
             // 
-            this.button1.BackgroundImage = global::PosTerminal.Properties.Resources.blue;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Image = global::PosTerminal.Properties.Resources.keypad;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(399, 149);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
-            this.button1.Size = new System.Drawing.Size(100, 100);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Keypad";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonKeypad.BackgroundImage = global::PosTerminal.Properties.Resources.blue;
+            this.buttonKeypad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonKeypad.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
+            this.buttonKeypad.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.buttonKeypad.Image = global::PosTerminal.Properties.Resources.keypad;
+            this.buttonKeypad.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonKeypad.Location = new System.Drawing.Point(399, 149);
+            this.buttonKeypad.Name = "buttonKeypad";
+            this.buttonKeypad.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
+            this.buttonKeypad.Size = new System.Drawing.Size(100, 100);
+            this.buttonKeypad.TabIndex = 7;
+            this.buttonKeypad.Text = "Keypad";
+            this.buttonKeypad.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonKeypad.UseVisualStyleBackColor = true;
+            this.buttonKeypad.Click += new System.EventHandler(this.buttonKeypad_Click);
             // 
             // buttonCancel
             // 
@@ -187,7 +188,7 @@ namespace PosTerminal
             this.Controls.Add(this.pictureBoxLoadingSpinny);
             this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonKeypad);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonPayNow);
@@ -213,7 +214,7 @@ namespace PosTerminal
         private System.Windows.Forms.Button buttonPayNow;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelTotal;
-        private Button button1;
+        private Button buttonKeypad;
         private Button button2;
         private Button buttonHelp;
         private PictureBox pictureBoxLoadingSpinny;
