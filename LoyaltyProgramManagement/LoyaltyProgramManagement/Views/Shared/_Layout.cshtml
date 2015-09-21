@@ -3,34 +3,39 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Tiger Tree Foods</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="min-height: 80px; margin-bottom: 0;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <a class="navbar-brand navbar-collapse collapse" id="branded-link" href="#">Tiger Tree Foods&nbsp;&nbsp;&nbsp;<img src="/Content/TigerTreeSmallWebsite.png" /></a>
+            <div class="navbar-collapse collapse" style="padding: 15px 0 0 0;">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Members", "Members", "Home")</li>
+                    <li>@Html.ActionLink("Members", "Members", "Home", new {@style = "padding-left: 0;"})</li>
                     <li>@Html.ActionLink("Products", "Products", "Home")</li>
+                    <li>@Html.ActionLink("Membership cards", "Members", "Home")</li>
+                    <li>@Html.ActionLink("Mailing list", "Members", "Home")</li>
+                    <li>@Html.ActionLink("Administration", "Members", "Home")</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="margin-top: 30px;">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Ben Emmett</p>
         </footer>
     </div>
 

@@ -46,3 +46,23 @@ input[type="checkbox"].input-validation-error {
     padding-top: 20px;
     background-color: #fcfcfc;
 }
+
+.navbar-nav li {
+    font-size: 1.2em;
+}
+
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: right;
+    margin: auto;
+}
+
+#branded-link {
+    padding: 10px;
+    margin: auto;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.8em;
+}
