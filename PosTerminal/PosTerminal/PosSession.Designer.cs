@@ -195,6 +195,7 @@ namespace PosTerminal
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "PosSession";
             this.Text = "Welcome to Tiger Tree Foods!";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosSession_KeyPress);
