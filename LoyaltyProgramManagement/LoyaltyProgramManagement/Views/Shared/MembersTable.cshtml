@@ -1,18 +1,23 @@
 ﻿@model List<LoyaltyProgramManagement.Models.ViewModels.MemberModel>
-<table data-toggle="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Membership code</th>
             <th>Name</th>
             <th>Address</th>
+            <th></th>
         </tr>
+    </thead>
+    <tbody>
         @foreach (var member in Model)
         {
             <tr>
                 <td>@member.MembershipCode</td>
                 <td>@member.FirstName @member.LastName</td>
-                <td>@member.Address1</td>
+                <td>@member.Address1, @member.Address2, @member.City, @member.PostCode</td>
+                <td><a href="#">Update details</a></td>
+                <td><a href="#">Contact member</a></td>
             </tr>
         }
-    </thead>
+    </tbody>
 </table>
