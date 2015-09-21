@@ -70,7 +70,7 @@ namespace PricingManager
             string filter = textBoxFilter.Text;
             List<ShoppingItem> items = String.IsNullOrWhiteSpace(filter)
                 ? m_currentPrices.Take(itemsToDisplay).ToList()
-                : m_currentPrices.Where(p => p.TillDescription.Contains(filter)).Take(itemsToDisplay).ToList();
+                : m_currentPrices.Where(p => p.TillDescription.ToLower().Contains(filter)).Take(itemsToDisplay).ToList();
             tableLayoutPanelCurrentPricing.SuspendLayout();
             ResetTable(tableLayoutPanelCurrentPricing);
             AddCurrentPricingHeaders();
