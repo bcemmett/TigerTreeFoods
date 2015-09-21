@@ -15,7 +15,7 @@
                 <td>@product.TillDescription</td>
                 <td>@product.Barcode</td>
                 <td>@product.RegularPrice.ToString("C")</td>
-                <td>@Html.Raw(product.OfferPrice.HasValue ? product.OfferPrice.Value.ToString("C") : "None")</td>
+                <td>@Html.Raw(product.OfferPrice.HasValue ? product.OfferPrice.Value.ToString("C") : "<em>None</em>")</td>
                 <td><a href="#">Analyse purchase patterns</a></td>
                 <td><a href="#">View members</a></td>
             </tr>
