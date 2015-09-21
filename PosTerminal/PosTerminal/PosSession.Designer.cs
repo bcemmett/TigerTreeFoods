@@ -30,6 +30,7 @@ namespace PosTerminal
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PosSession));
             this.richTextBoxLastScanned = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanelShoppingItems = new System.Windows.Forms.TableLayoutPanel();
             this.labelTotal = new System.Windows.Forms.Label();
@@ -184,6 +185,7 @@ namespace PosTerminal
             this.Controls.Add(this.tableLayoutPanelShoppingItems);
             this.Controls.Add(this.richTextBoxLastScanned);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "PosSession";
             this.Text = "Welcome to Tiger Tree Foods!";
