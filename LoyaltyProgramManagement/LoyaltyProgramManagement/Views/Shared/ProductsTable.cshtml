@@ -1,5 +1,5 @@
 ﻿@model List<LoyaltyProgramManagement.Models.ViewModels.ProductModel>
-<table data-toggle="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Description</th>
@@ -7,6 +7,8 @@
             <th>Current Price</th>
             <th>Offer Price</th>
         </tr>
+    </thead>
+    <tbody>
         @foreach (var product in Model)
         {
             <tr>
@@ -14,7 +16,9 @@
                 <td>@product.Barcode</td>
                 <td>@product.RegularPrice.ToString("C")</td>
                 <td>@Html.Raw(product.OfferPrice.HasValue ? product.OfferPrice.Value.ToString("C") : "None")</td>
+                <td><a href="#">Analyse purchase patterns</a></td>
+                <td><a href="#">View members</a></td>
             </tr>
         }
-    </thead>
+    </tbody>
 </table>
