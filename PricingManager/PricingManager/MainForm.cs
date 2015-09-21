@@ -252,7 +252,16 @@ namespace PricingManager
             offerPrice.Text = item.OfferPrice.HasValue ? item.OfferPrice.Value.ToString("C") : String.Empty;
 
             RichTextBox competitorPrice = GetRichTextBoxForItemList(false);
-            competitorPrice.Text = item.CompetitorPrice.HasValue ? item.CompetitorPrice.Value.ToString("C") : "NO MATCH";
+            competitorPrice.Text = "█ " + (item.CompetitorPrice.HasValue ? item.CompetitorPrice.Value.ToString("C") : "NO MATCH");
+
+            if (item.CompetitorPrice > item.OfferPrice)
+            {
+                competitorPrice.ForeColor = Color.Green;
+            }
+            else
+            {
+                competitorPrice.ForeColor = Color.Red;
+            }
 
             tableLayoutPanelCompetitorPricing.RowCount++;
             int nextRow = tableLayoutPanelCompetitorPricing.RowCount - 1;
