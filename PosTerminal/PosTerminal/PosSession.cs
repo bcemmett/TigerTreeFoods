@@ -20,6 +20,20 @@ namespace PosTerminal
             tableLayoutPanelShoppingItems.RowStyles.Clear();
         }
 
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
+
+            base.WndProc(ref m);
+        }
+
         private void PosSession_KeyPress(object sender, KeyPressEventArgs e)
         {
             char[] validChars = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -134,6 +148,15 @@ namespace PosTerminal
             labelTotal.Text = "£0.00";
             richTextBoxLastScanned.Text = String.Empty;
             m_ShoppingItems.Clear();
+        }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to close the application?", "Close", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

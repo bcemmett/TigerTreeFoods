@@ -35,7 +35,7 @@ namespace PosTerminal
             this.tableLayoutPanelShoppingItems = new System.Windows.Forms.TableLayoutPanel();
             this.labelTotal = new System.Windows.Forms.Label();
             this.pictureBoxLoadingSpinny = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonHelp = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -95,22 +95,23 @@ namespace PosTerminal
             this.pictureBoxLoadingSpinny.TabStop = false;
             this.pictureBoxLoadingSpinny.Visible = false;
             // 
-            // button3
+            // buttonHelp
             // 
-            this.button3.BackgroundImage = global::PosTerminal.Properties.Resources.blue;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button3.Image = global::PosTerminal.Properties.Resources.question;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(641, 149);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
-            this.button3.Size = new System.Drawing.Size(100, 100);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Help";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonHelp.BackgroundImage = global::PosTerminal.Properties.Resources.blue;
+            this.buttonHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonHelp.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
+            this.buttonHelp.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.buttonHelp.Image = global::PosTerminal.Properties.Resources.question;
+            this.buttonHelp.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonHelp.Location = new System.Drawing.Point(641, 149);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
+            this.buttonHelp.Size = new System.Drawing.Size(100, 100);
+            this.buttonHelp.TabIndex = 9;
+            this.buttonHelp.Text = "Help";
+            this.buttonHelp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
             // 
             // button2
             // 
@@ -184,7 +185,7 @@ namespace PosTerminal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(761, 408);
             this.Controls.Add(this.pictureBoxLoadingSpinny);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelTotal);
@@ -192,7 +193,7 @@ namespace PosTerminal
             this.Controls.Add(this.buttonPayNow);
             this.Controls.Add(this.tableLayoutPanelShoppingItems);
             this.Controls.Add(this.richTextBoxLastScanned);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -214,7 +215,7 @@ namespace PosTerminal
         private System.Windows.Forms.Label labelTotal;
         private Button button1;
         private Button button2;
-        private Button button3;
+        private Button buttonHelp;
         private PictureBox pictureBoxLoadingSpinny;
 
     }
