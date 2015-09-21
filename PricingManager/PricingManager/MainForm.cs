@@ -38,6 +38,7 @@ namespace PricingManager
 
         private void UpdateCurrentPricesGridFromDatabase()
         {
+            m_currentPrices.Clear();
             var connectionString = ConfigurationManager.ConnectionStrings["LiveDb"].ConnectionString;
             using (var conn = new SqlConnection(connectionString))
             {
