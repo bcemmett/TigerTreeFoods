@@ -40,3 +40,9 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+#search-area {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: #fcfcfc;
+}
