@@ -89,16 +89,16 @@ namespace PricingManager
 
         private void AddItemToCurrentPricingTable(ShoppingItem item)
         {
-            RichTextBox description = GetRichTextBoxForItemList();
+            RichTextBox description = GetRichTextBoxForItemList(false);
             description.Text = item.TillDescription;
 
-            RichTextBox regularPrice = GetRichTextBoxForItemList();
+            RichTextBox regularPrice = GetRichTextBoxForItemList(false);
             regularPrice.Text = item.RegularPrice.ToString("C");
 
-            RichTextBox offerPrice = GetRichTextBoxForItemList();
+            RichTextBox offerPrice = GetRichTextBoxForItemList(false);
             offerPrice.Text = item.OfferPrice.HasValue ? item.OfferPrice.Value.ToString("C") : String.Empty;
 
-            RichTextBox barcode = GetRichTextBoxForItemList();
+            RichTextBox barcode = GetRichTextBoxForItemList(false);
             barcode.Text = item.Barcode;
 
             Button updatePrice = new Button
@@ -116,19 +116,26 @@ namespace PricingManager
             tableLayoutPanelCurrentPricing.Controls.Add(updatePrice, 4, nextRow);
         }
 
-        private RichTextBox GetRichTextBoxForItemList()
+        private RichTextBox GetRichTextBoxForItemList(bool bold)
         {
             var rtb = new RichTextBox
             {
                 ForeColor = Color.Black,
                 BackColor = SystemColors.Window,
-                Font = (new Font("Microsoft San Serif", 10)),
                 Margin = new Padding(0),
                 Height = 20,
                 Dock = DockStyle.Fill,
                 BorderStyle = BorderStyle.None,
                 ReadOnly = true
             };
+            if (bold)
+            {
+                rtb.Font = (new Font("Microsoft San Serif", 10, FontStyle.Bold));
+            }
+            else
+            {
+                rtb.Font = (new Font("Microsoft San Serif", 10));
+            }
             return rtb;
         }
 
@@ -140,11 +147,38 @@ namespace PricingManager
         private void buttonFetchCompetitorPricing_Click(object sender, EventArgs e)
         {
             ResetTable(tableLayoutPanelCompetitorPricing);
+            AddCompetitorPricingHeaders();
             m_competitorLookupCancellationToken = new CancellationTokenSource();
             var token = m_competitorLookupCancellationToken.Token;
             buttonFetchCompetitorPricing.Enabled = false;
             buttonCancelCompetitorLookup.Enabled = true;
             Task.Run(() => PopulateCompetitorPricing(), token);
+        }
+
+        private void AddCompetitorPricingHeaders()
+        {
+            tableLayoutPanelCompetitorPricing.SuspendLayout();
+            
+            RichTextBox description = GetRichTextBoxForItemList(true);
+            description.Text = "Description";
+
+            RichTextBox regularPrice = GetRichTextBoxForItemList(true);
+            regularPrice.Text = "Regular price";
+
+            RichTextBox offerPrice = GetRichTextBoxForItemList(true);
+            offerPrice.Text = "Offer price";
+
+            RichTextBox competitorPrice = GetRichTextBoxForItemList(true);
+            competitorPrice.Text = "Competitor price";
+
+            tableLayoutPanelCompetitorPricing.RowCount++;
+            int nextRow = tableLayoutPanelCompetitorPricing.RowCount - 1;
+            tableLayoutPanelCompetitorPricing.Controls.Add(description, 0, nextRow);
+            tableLayoutPanelCompetitorPricing.Controls.Add(regularPrice, 1, nextRow);
+            tableLayoutPanelCompetitorPricing.Controls.Add(offerPrice, 2, nextRow);
+            tableLayoutPanelCompetitorPricing.Controls.Add(competitorPrice, 3, nextRow);
+
+            tableLayoutPanelCompetitorPricing.ResumeLayout();
         }
 
         private void PopulateCompetitorPricing()
@@ -184,23 +218,17 @@ namespace PricingManager
         private void AddCompetitorItemToTable(CompetitorItem item)
         {
             tableLayoutPanelCompetitorPricing.SuspendLayout();
-            RichTextBox description = GetRichTextBoxForItemList();
+            RichTextBox description = GetRichTextBoxForItemList(false);
             description.Text = item.TillDescription;
 
-            RichTextBox regularPrice = GetRichTextBoxForItemList();
+            RichTextBox regularPrice = GetRichTextBoxForItemList(false);
             regularPrice.Text = item.RegularPrice.ToString("C");
 
-            RichTextBox offerPrice = GetRichTextBoxForItemList();
+            RichTextBox offerPrice = GetRichTextBoxForItemList(false);
             offerPrice.Text = item.OfferPrice.HasValue ? item.OfferPrice.Value.ToString("C") : String.Empty;
 
-            RichTextBox competitorPrice = GetRichTextBoxForItemList();
+            RichTextBox competitorPrice = GetRichTextBoxForItemList(false);
             competitorPrice.Text = item.CompetitorPrice.HasValue ? item.CompetitorPrice.Value.ToString("C") : "NO MATCH";
-
-            Button updatePrice = new Button
-            {
-                Text = "Edit",
-                Width = 60
-            };
 
             tableLayoutPanelCompetitorPricing.RowCount++;
             int nextRow = tableLayoutPanelCompetitorPricing.RowCount - 1;
@@ -208,7 +236,6 @@ namespace PricingManager
             tableLayoutPanelCompetitorPricing.Controls.Add(regularPrice, 1, nextRow);
             tableLayoutPanelCompetitorPricing.Controls.Add(offerPrice, 2, nextRow);
             tableLayoutPanelCompetitorPricing.Controls.Add(competitorPrice, 3, nextRow);
-            tableLayoutPanelCompetitorPricing.Controls.Add(updatePrice, 4, nextRow);
             tableLayoutPanelCompetitorPricing.ResumeLayout();
         }
 

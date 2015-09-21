@@ -197,12 +197,12 @@
             this.tableLayoutPanelCompetitorPricing.AutoScroll = true;
             this.tableLayoutPanelCompetitorPricing.AutoScrollMinSize = new System.Drawing.Size(10, 0);
             this.tableLayoutPanelCompetitorPricing.AutoSize = true;
-            this.tableLayoutPanelCompetitorPricing.ColumnCount = 5;
+            this.tableLayoutPanelCompetitorPricing.ColumnCount = 4;
             this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
-            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanelCompetitorPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelCompetitorPricing.Location = new System.Drawing.Point(6, 48);
             this.tableLayoutPanelCompetitorPricing.MaximumSize = new System.Drawing.Size(761, 352);
             this.tableLayoutPanelCompetitorPricing.Name = "tableLayoutPanelCompetitorPricing";
