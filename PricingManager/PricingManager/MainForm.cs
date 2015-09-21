@@ -73,6 +73,7 @@ namespace PricingManager
                 : m_currentPrices.Where(p => p.TillDescription.Contains(filter)).Take(itemsToDisplay).ToList();
             tableLayoutPanelCurrentPricing.SuspendLayout();
             ResetTable(tableLayoutPanelCurrentPricing);
+            AddCurrentPricingHeaders();
             foreach (var item in items)
             {
                 AddItemToCurrentPricingTable(item);
@@ -85,6 +86,29 @@ namespace PricingManager
             table.RowStyles.Clear();
             table.Controls.Clear();
             table.RowCount = 1;
+        }
+
+
+        private void AddCurrentPricingHeaders()
+        {
+            tableLayoutPanelCurrentPricing.SuspendLayout();
+
+            RichTextBox description = GetRichTextBoxForItemList(true);
+            description.Text = "Description";
+
+            RichTextBox regularPrice = GetRichTextBoxForItemList(true);
+            regularPrice.Text = "Regular price";
+
+            RichTextBox offerPrice = GetRichTextBoxForItemList(true);
+            offerPrice.Text = "Offer price";
+            
+            tableLayoutPanelCurrentPricing.RowCount++;
+            int nextRow = tableLayoutPanelCurrentPricing.RowCount - 1;
+            tableLayoutPanelCurrentPricing.Controls.Add(description, 0, nextRow);
+            tableLayoutPanelCurrentPricing.Controls.Add(regularPrice, 1, nextRow);
+            tableLayoutPanelCurrentPricing.Controls.Add(offerPrice, 2, nextRow);
+            
+            tableLayoutPanelCurrentPricing.ResumeLayout();
         }
 
         private void AddItemToCurrentPricingTable(ShoppingItem item)
@@ -110,10 +134,9 @@ namespace PricingManager
             tableLayoutPanelCurrentPricing.RowCount++;
             int nextRow = tableLayoutPanelCurrentPricing.RowCount - 1;
             tableLayoutPanelCurrentPricing.Controls.Add(description, 0, nextRow);
-            tableLayoutPanelCurrentPricing.Controls.Add(barcode, 1, nextRow);
-            tableLayoutPanelCurrentPricing.Controls.Add(regularPrice, 2, nextRow);
-            tableLayoutPanelCurrentPricing.Controls.Add(offerPrice, 3, nextRow);
-            tableLayoutPanelCurrentPricing.Controls.Add(updatePrice, 4, nextRow);
+            tableLayoutPanelCurrentPricing.Controls.Add(regularPrice, 1, nextRow);
+            tableLayoutPanelCurrentPricing.Controls.Add(offerPrice, 2, nextRow);
+            tableLayoutPanelCurrentPricing.Controls.Add(updatePrice, 3, nextRow);
         }
 
         private RichTextBox GetRichTextBoxForItemList(bool bold)

@@ -134,12 +134,12 @@
             this.tableLayoutPanelCurrentPricing.AutoScroll = true;
             this.tableLayoutPanelCurrentPricing.AutoScrollMinSize = new System.Drawing.Size(10, 0);
             this.tableLayoutPanelCurrentPricing.AutoSize = true;
-            this.tableLayoutPanelCurrentPricing.ColumnCount = 5;
-            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
-            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.tableLayoutPanelCurrentPricing.ColumnCount = 4;
+            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 385F));
+            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanelCurrentPricing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelCurrentPricing.Location = new System.Drawing.Point(6, 48);
             this.tableLayoutPanelCurrentPricing.MaximumSize = new System.Drawing.Size(761, 352);
             this.tableLayoutPanelCurrentPricing.Name = "tableLayoutPanelCurrentPricing";
