@@ -101,9 +101,11 @@ namespace PosTerminal
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button3.Image = global::PosTerminal.Properties.Resources.question;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button3.Location = new System.Drawing.Point(641, 149);
             this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.button3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
             this.button3.Size = new System.Drawing.Size(100, 100);
             this.button3.TabIndex = 9;
             this.button3.Text = "Help";
@@ -116,9 +118,11 @@ namespace PosTerminal
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button2.Image = global::PosTerminal.Properties.Resources.loyalty;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button2.Location = new System.Drawing.Point(520, 149);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.button2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
             this.button2.Size = new System.Drawing.Size(100, 100);
             this.button2.TabIndex = 8;
             this.button2.Text = "Loyalty";
@@ -131,9 +135,11 @@ namespace PosTerminal
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Font = new System.Drawing.Font("MV Boli", 14F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.Image = global::PosTerminal.Properties.Resources.keypad;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.Location = new System.Drawing.Point(399, 149);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.button1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
             this.button1.Size = new System.Drawing.Size(100, 100);
             this.button1.TabIndex = 7;
             this.button1.Text = "Keypad";
@@ -161,13 +167,15 @@ namespace PosTerminal
             this.buttonPayNow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonPayNow.Font = new System.Drawing.Font("MV Boli", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPayNow.ForeColor = System.Drawing.Color.Snow;
+            this.buttonPayNow.Image = global::PosTerminal.Properties.Resources.money;
+            this.buttonPayNow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPayNow.Location = new System.Drawing.Point(399, 266);
             this.buttonPayNow.Name = "buttonPayNow";
-            this.buttonPayNow.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.buttonPayNow.Padding = new System.Windows.Forms.Padding(30, 0, 20, 0);
             this.buttonPayNow.Size = new System.Drawing.Size(342, 126);
             this.buttonPayNow.TabIndex = 3;
             this.buttonPayNow.Text = "Pay Now";
-            this.buttonPayNow.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonPayNow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonPayNow.UseVisualStyleBackColor = false;
             // 
             // PosSession

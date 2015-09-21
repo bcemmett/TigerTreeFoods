@@ -91,6 +91,18 @@
   <ItemGroup>
     <None Include="Resources\ajax-loader.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keypad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loyalty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
