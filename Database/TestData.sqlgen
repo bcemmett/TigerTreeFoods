@@ -5,14 +5,14 @@ SQL Data Generator
 Version:3.0.1.560-->
 <Project version="2" type="SDGProject">
   <DataSource version="3" type="LiveDatabaseSource">
-    <ServerName>.\sql2014</ServerName>
+    <ServerName>TigerTreeServer\sql2014</ServerName>
     <DatabaseName>TigerTreeFoods</DatabaseName>
-    <Username />
-    <SavePassword>False</SavePassword>
-    <Password />
+    <Username>TigerTree</Username>
+    <SavePassword>True</SavePassword>
+    <Password>TigerTree1</Password>
     <ScriptFolderLocation />
     <MigrationsFolderLocation />
-    <IntegratedSecurity>True</IntegratedSecurity>
+    <IntegratedSecurity>False</IntegratedSecurity>
   </DataSource>
   <Tables type="List&lt;SDGTable&gt;" version="1">
     <value version="1" type="SDGTable">
