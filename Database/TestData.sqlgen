@@ -918,7 +918,15 @@ Version:3.1.0.226-->
     <CheckConstraints>True</CheckConstraints>
     <ShuffleBlockSize>1000</ShuffleBlockSize>
   </ProjectOptions>
-  <PreScripts type="SQLScripts" version="1" />
+  <PreScripts type="SQLScripts" version="1">
+    <value version="1" type="SQLScript">
+      <SQLScriptType>InternalSQLScript</SQLScriptType>
+      <Name>Disable indexes</Name>
+      <Script>ALTER INDEX NonClusteredIndex_MemberId_MembershipCode_FirstName_LastName_City_FavouriteProductId ON dbo.Members DISABLE
+ALTER INDEX NonClusteredIndex_ProductId_Barcode_Category ON dbo.Products DISABLE
+ALTER INDEX NonClusteredIndex_TransactionId_MemberId_TotalPrice_PurchaseDate ON dbo.Transactions DISABLE</Script>
+    </value>
+  </PreScripts>
   <PostScripts type="SQLScripts" version="1">
     <value version="1" type="SQLScript">
       <SQLScriptType>InternalSQLScript</SQLScriptType>
@@ -982,6 +990,13 @@ VALUES  ( '123456789ABC' ,
           N'Cambridge' ,
           1
         )</Script>
+    </value>
+    <value version="1" type="SQLScript">
+      <SQLScriptType>InternalSQLScript</SQLScriptType>
+      <Name>Rebuild indexes</Name>
+      <Script>ALTER INDEX NonClusteredIndex_MemberId_MembershipCode_FirstName_LastName_City_FavouriteProductId ON dbo.Members REBUILD
+ALTER INDEX NonClusteredIndex_ProductId_Barcode_Category ON dbo.Products REBUILD
+ALTER INDEX NonClusteredIndex_TransactionId_MemberId_TotalPrice_PurchaseDate ON dbo.Transactions REBUILD</Script>
     </value>
   </PostScripts>
   <IsRefresh>False</IsRefresh>
