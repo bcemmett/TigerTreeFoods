@@ -299,7 +299,7 @@ Version:3.1.0.226-->
           <FieldType>Generated</FieldType>
           <PrimaryKey>False</PrimaryKey>
           <ForeignKey>False</ForeignKey>
-          <Unique>True</Unique>
+          <Unique>False</Unique>
           <AllowsNulls>False</AllowsNulls>
           <SqlType>NVarchar</SqlType>
           <Precision>0</Precision>
@@ -923,7 +923,8 @@ Version:3.1.0.226-->
       <SQLScriptType>InternalSQLScript</SQLScriptType>
       <Name>Disable indexes</Name>
       <Script>ALTER INDEX NonClusteredIndex_MemberId_MembershipCode_FirstName_LastName_City_FavouriteProductId ON dbo.Members DISABLE
-ALTER INDEX NonClusteredIndex_ProductId_Barcode_Category ON dbo.Products DISABLE
+ALTER INDEX NonClusteredIndex_ProductId_Barcode ON dbo.Products DISABLE
+ALTER INDEX NonClusteredIndex_Category ON dbo.Products DISABLE
 ALTER INDEX NonClusteredIndex_TransactionId_MemberId_TotalPrice_PurchaseDate ON dbo.Transactions DISABLE</Script>
     </value>
   </PreScripts>
@@ -939,13 +940,13 @@ WHERE   ProductId % 8 = 0</Script>
       <SQLScriptType>InternalSQLScript</SQLScriptType>
       <Name>Scannable items</Name>
       <Script>INSERT  INTO dbo.Products
-        ( Barcode, RegularPrice, OfferPrice, TillDescription )
-VALUES  ( N'6154817490341574', 1.20, NULL, N'Pack chocolate biscuits' ),
-        ( N'9418745160124803', 0.45, 0.30, N'Closed cup mushrooms' ),
-        ( N'2154187031946714', 0.60, NULL, N'Single onion' ),
-        ( N'3400487197684118', 2.30, 1.90, N'Strong blue cheese' ),
-        ( N'3174487154933405', 7.99, NULL, N'Bottle red wine' ),
-        ( N'5471548213554009', 1.80, NULL, N'Large pack butter' )</Script>
+        ( Barcode, RegularPrice, OfferPrice, TillDescription, Category )
+VALUES  ( N'6154817490341574', 1.20, NULL, N'Pack chocolate biscuits', N'Biscuits' ),
+        ( N'9418745160124803', 0.45, 0.30, N'Closed cup mushrooms', N'Vegetables' ),
+        ( N'2154187031946714', 0.60, NULL, N'Single onion', N'Vegetables' ),
+        ( N'3400487197684118', 2.30, 1.90, N'Strong blue cheese', N'Dairy' ),
+        ( N'3174487154933405', 7.99, NULL, N'Bottle red wine', N'Wine' ),
+        ( N'5471548213554009', 1.80, NULL, N'Large pack butter', N'Dairy' )</Script>
     </value>
     <value version="1" type="SQLScript">
       <SQLScriptType>InternalSQLScript</SQLScriptType>
@@ -995,7 +996,8 @@ VALUES  ( '123456789ABC' ,
       <SQLScriptType>InternalSQLScript</SQLScriptType>
       <Name>Rebuild indexes</Name>
       <Script>ALTER INDEX NonClusteredIndex_MemberId_MembershipCode_FirstName_LastName_City_FavouriteProductId ON dbo.Members REBUILD
-ALTER INDEX NonClusteredIndex_ProductId_Barcode_Category ON dbo.Products REBUILD
+ALTER INDEX NonClusteredIndex_ProductId_Barcode ON dbo.Products REBUILD
+ALTER INDEX NonClusteredIndex_Category ON dbo.Products REBUILD
 ALTER INDEX NonClusteredIndex_TransactionId_MemberId_TotalPrice_PurchaseDate ON dbo.Transactions REBUILD</Script>
     </value>
   </PostScripts>
