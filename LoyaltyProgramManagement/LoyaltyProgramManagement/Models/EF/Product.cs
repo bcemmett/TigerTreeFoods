@@ -17,6 +17,7 @@ namespace LoyaltyProgramManagement.Models
         public Nullable<decimal> OfferPrice { get; set; }
         public string TillDescription { get; set; }
         public byte[] Image { get; set; }
+        public string Category { get; set; }
         public virtual ICollection<Member> Members { get; set; }
 
         public ProductModel ToProductModel()
@@ -25,6 +26,7 @@ namespace LoyaltyProgramManagement.Models
             {
                 ProductId = ProductId,
                 Barcode = Barcode,
+                Category = Category,
                 RegularPrice = RegularPrice,
                 OfferPrice = OfferPrice,
                 TillDescription = TillDescription

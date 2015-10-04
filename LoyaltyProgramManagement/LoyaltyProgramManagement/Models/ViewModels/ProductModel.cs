@@ -6,6 +6,7 @@ namespace LoyaltyProgramManagement.Models.ViewModels
     {
         public string TillDescription { get; set; }
         public string Barcode { get; set; }
+        public string Category { get; set; }
         public Decimal RegularPrice { get; set; }
         public Decimal? OfferPrice { get; set; }
         public int ProductId { get; set; }

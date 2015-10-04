@@ -19,10 +19,15 @@ namespace LoyaltyProgramManagement.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(100);
 
+            this.Property(t => t.Category)
+                .IsRequired()
+                .HasMaxLength(50);
+
             // Table & Column Mappings
             this.ToTable("Products");
             this.Property(t => t.ProductId).HasColumnName("ProductId");
             this.Property(t => t.Barcode).HasColumnName("Barcode");
+            this.Property(t => t.Category).HasColumnName("Category");
             this.Property(t => t.RegularPrice).HasColumnName("RegularPrice");
             this.Property(t => t.OfferPrice).HasColumnName("OfferPrice");
             this.Property(t => t.TillDescription).HasColumnName("TillDescription");

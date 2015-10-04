@@ -58,13 +58,18 @@ namespace LoyaltyProgramManagement
             }
         }
 
-        public List<Product> SearchProducts(string barcode, string description)
+        public List<Product> SearchProducts(string barcode, string category, string description)
         {
             using (var db = new TigerTreeFoodsContext())
             {
                 if (!String.IsNullOrWhiteSpace(barcode))
                 {
                     return db.Products.Where(p => p.Barcode == barcode).ToList();
+                }
+
+                if (!String.IsNullOrWhiteSpace(category))
+                {
+                    return db.Products.Where(p => p.Category == category).ToList();
                 }
 
                 if (!String.IsNullOrWhiteSpace(description))

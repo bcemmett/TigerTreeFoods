@@ -7,6 +7,8 @@ namespace LoyaltyProgramManagement.Models.ViewModels
     {
         [DisplayName("Description")]
         public string Description { get; set; }
+        [DisplayName("Category")]
+        public string Category { get; set; }
         [DisplayName("Barcode")]
         public string Barcode { get; set; }
         [DisplayName("Products")]
