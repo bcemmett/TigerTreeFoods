@@ -23,7 +23,7 @@ namespace LoyaltyProgramManagement
             }
         }
 
-        public List<Member> SearchMembersByDetails(string firstName, string lastName, string city, bool recentTransactions)
+        private List<Member> SearchMembersByDetails(string firstName, string lastName, string city, bool recentTransactions)
         {
             using (var db = new TigerTreeFoodsContext())
             {
@@ -49,7 +49,7 @@ namespace LoyaltyProgramManagement
             }
         }
 
-        public List<Member> SearchMembersByMembershipCode(string membershipCode)
+        private List<Member> SearchMembersByMembershipCode(string membershipCode)
         {
             using (var db = new TigerTreeFoodsContext())
             {
