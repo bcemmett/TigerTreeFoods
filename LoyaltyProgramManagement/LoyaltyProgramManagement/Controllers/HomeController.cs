@@ -39,7 +39,10 @@ namespace LoyaltyProgramManagement.Controllers
         
         public ActionResult Members()
         {
-            var model = new MembersTableModel();
+            var model = new MembersTableModel
+            {
+                ResultsToDisplay = 100
+            };
             return View(model);
         }
     }
