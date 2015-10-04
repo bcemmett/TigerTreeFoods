@@ -9,32 +9,52 @@ namespace LoyaltyProgramManagement
     {
         public List<Member> SearchMembers(int resultsToFetch, string firstName, string lastName, string city, string membershipCode, bool recentTransactions)
         {
+            if (String.IsNullOrWhiteSpace(membershipCode))
+            {
+                return SearchMembersByDetails(firstName, lastName, city, recentTransactions)
+                    .Take(resultsToFetch)
+                    .ToList();
+            }
+            else
+            {
+                return SearchMembersByMembershipCode(membershipCode)
+                    .Take(resultsToFetch)
+                    .ToList();
+            }
+        }
+
+        public List<Member> SearchMembersByDetails(string firstName, string lastName, string city, bool recentTransactions)
+        {
             using (var db = new TigerTreeFoodsContext())
             {
-                if (!String.IsNullOrWhiteSpace(membershipCode))
-                {
-                    IEnumerable<Member> membersByMembershipCode = db.Members.Where(m => m.MembershipCode == membershipCode);
-                    return membersByMembershipCode.ToList();
-                }
+                List<Member> members = db.Members
+                .Where(m =>
+                    (m.FirstName == firstName || firstName == null || firstName == String.Empty)
+                    && (m.LastName == lastName || lastName == null || lastName == String.Empty)
+                    && (m.City == city || city == null || city == String.Empty)
+                )
+                .OrderBy(m => m.LastName)
+                .ToList();
 
-                IEnumerable<Member> members = db.Members
-                    .Where(m => 
-                        (m.FirstName == firstName || firstName == null || firstName == String.Empty)
-                        && (m.LastName == lastName || lastName == null || lastName == String.Empty)
-                        && (m.City == city || city == null || city == String.Empty)
-                        && (m.MembershipCode == membershipCode || membershipCode == null || membershipCode == String.Empty)
-                    );
-                
                 if (recentTransactions)
                 {
                     DateTime oneWeekAgo = DateTime.UtcNow.AddDays(-7);
-                    return members
+                    members = members
                         .Where(m => m.Transactions
                             .Count(t => t.PurchaseDate > oneWeekAgo) > 0)
                         .ToList();
                 }
-                
-                return members.Take(resultsToFetch).ToList();
+
+                return members;
+            }
+        }
+
+        public List<Member> SearchMembersByMembershipCode(string membershipCode)
+        {
+            using (var db = new TigerTreeFoodsContext())
+            {
+                IEnumerable<Member> membersByMembershipCode = db.Members.Where(m => m.MembershipCode == membershipCode);
+                return membersByMembershipCode.ToList();
             }
         }
 
