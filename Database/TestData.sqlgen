@@ -313,7 +313,7 @@ Version:3.1.0.226-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">(Dairy|Beverages|Confections|Seafood|Meat|Poultry|Grain|Cereals|Produce|Shell fish|Snails)</value>
+                <value type="string">[a-z0-9]{20}</value>
               </element>
               <element>
                 <key type="string">Unique</key>
