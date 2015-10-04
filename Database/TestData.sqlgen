@@ -294,6 +294,50 @@ Version:3.1.0.226-->
             </GeneratorProperties>
           </Generator>
         </value>
+        <value version="1" type="SDGField">
+          <Name>Category</Name>
+          <FieldType>Generated</FieldType>
+          <PrimaryKey>False</PrimaryKey>
+          <ForeignKey>False</ForeignKey>
+          <Unique>True</Unique>
+          <AllowsNulls>False</AllowsNulls>
+          <SqlType>NVarchar</SqlType>
+          <Precision>0</Precision>
+          <Scale>0</Scale>
+          <DefinedSize>50</DefinedSize>
+          <Generator version="1" type="GeneratorDetails">
+            <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
+            <DisplayName>Categories</DisplayName>
+            <Description>Cereals, Grain, Confections, Produce...</Description>
+            <CategoryName>Business</CategoryName>
+            <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
+              <element>
+                <key type="string">Expression</key>
+                <value type="string">(Dairy|Beverages|Confections|Seafood|Meat|Poultry|Grain|Cereals|Produce|Shell fish|Snails)</value>
+              </element>
+              <element>
+                <key type="string">Unique</key>
+                <value type="string">False</value>
+              </element>
+              <element>
+                <key type="string">Seed</key>
+                <value type="string">6</value>
+              </element>
+              <element>
+                <key type="string">NullsAllowed</key>
+                <value type="string">False</value>
+              </element>
+              <element>
+                <key type="string">NullProportion</key>
+                <value type="string">0.01</value>
+              </element>
+              <element>
+                <key type="string">UseSequence</key>
+                <value type="string">False</value>
+              </element>
+            </GeneratorProperties>
+          </Generator>
+        </value>
       </Fields>
       <ForeignKeyProperties type="List&lt;ForeignKeyProperty&gt;" version="1" />
     </value>
@@ -907,14 +951,14 @@ VALUES  ( N'6154817490341574', 1.20, NULL, N'Pack chocolate biscuits' ),
 DECLARE @biggerdata VARBINARY(MAX) = CONVERT(VARBINARY(MAX), REPLICATE(@data, 32))
 
 INSERT  INTO dbo.Products
-        ( Barcode, RegularPrice, OfferPrice, TillDescription, Image )
+        ( Barcode, RegularPrice, OfferPrice, TillDescription, Image, Category )
 VALUES
-        ( N'3150812445206845', 0.40, NULL, N'Honeycrisp apples', @biggerdata ),
-        ( N'9651206845100512', 0.45, 0.40, N'Granny smith apples', @biggerdata ),
-        ( N'0234596532035416', 0.50, NULL, N'Pink lady apples', @biggerdata ),
-        ( N'6965206853265132', 0.62, NULL, N'Gala apples', @biggerdata ),
-        ( N'1451854120120512', 0.49, 0.45, N'Cooking apples', @biggerdata ),
-        ( N'9416319635210663', 0.30, NULL, N'Value green apples', @biggerdata )</Script>
+        ( N'3150812445206845', 0.40, NULL, N'Honeycrisp apples', @biggerdata, N'Apples' ),
+        ( N'9651206845100512', 0.45, 0.40, N'Granny smith apples', @biggerdata, N'Apples' ),
+        ( N'0234596532035416', 0.50, NULL, N'Pink lady apples', @biggerdata, N'Apples' ),
+        ( N'6965206853265132', 0.62, NULL, N'Gala apples', @biggerdata, N'Apples' ),
+        ( N'1451854120120512', 0.49, 0.45, N'Cooking apples', @biggerdata, N'Apples' ),
+        ( N'9416319635210663', 0.30, NULL, N'Value green apples', @biggerdata, N'Apples' )</Script>
     </value>
     <value version="1" type="SQLScript">
       <SQLScriptType>InternalSQLScript</SQLScriptType>
