@@ -6,9 +6,11 @@ CREATE TABLE [dbo].[Products]
 [OfferPrice] [money] NULL,
 [TillDescription] [nvarchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [Image] [varbinary] (max) NULL,
-[Category] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL CONSTRAINT [DF_Products_Category] DEFAULT (N'Other')
+[Category] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 CREATE UNIQUE NONCLUSTERED INDEX [NonClusteredIndex_ProductId_Barcode_Category] ON [dbo].[Products] ([ProductId], [Barcode], [Category]) INCLUDE ([OfferPrice], [RegularPrice], [TillDescription]) ON [PRIMARY]
+
+
 
 GO
 ALTER TABLE [dbo].[Products] ADD CONSTRAINT [PK_CurrentPrices_ProductId] PRIMARY KEY CLUSTERED  ([ProductId]) ON [PRIMARY]
