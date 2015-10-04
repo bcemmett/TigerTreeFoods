@@ -8,7 +8,11 @@ CREATE TABLE [dbo].[Products]
 [Image] [varbinary] (max) NULL,
 [Category] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-CREATE UNIQUE NONCLUSTERED INDEX [NonClusteredIndex_ProductId_Barcode_Category] ON [dbo].[Products] ([ProductId], [Barcode], [Category]) INCLUDE ([OfferPrice], [RegularPrice], [TillDescription]) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [NonClusteredIndex_Category] ON [dbo].[Products] ([Category]) INCLUDE ([Barcode], [OfferPrice], [ProductId], [RegularPrice], [TillDescription]) ON [PRIMARY]
+
+CREATE UNIQUE NONCLUSTERED INDEX [NonClusteredIndex_ProductId_Barcode] ON [dbo].[Products] ([ProductId], [Barcode]) INCLUDE ([Category], [OfferPrice], [RegularPrice], [TillDescription]) ON [PRIMARY]
+
+
 
 
 
