@@ -954,7 +954,7 @@ VALUES  ( N'6154817490341574', 1.20, NULL, N'Pack chocolate biscuits', N'Biscuit
       <Script>DECLARE @data VARBINARY(MAX) = ( SELECT TOP 1
                                         Image
                                  FROM   dbo.Products
-                                 WHERE  ProductId = 1
+                                 ORDER BY ProductId ASC
                                )
 
 DECLARE @biggerdata VARBINARY(MAX) = CONVERT(VARBINARY(MAX), REPLICATE(@data, 32))
@@ -989,7 +989,10 @@ VALUES  ( '123456789ABC' ,
           N'Cambridge Business Park' ,
           N'CB4 0WZ' ,
           N'Cambridge' ,
-          1
+          ( SELECT TOP 1
+                    ProductId
+            FROM    dbo.Products
+          )
         )</Script>
     </value>
     <value version="1" type="SQLScript">
