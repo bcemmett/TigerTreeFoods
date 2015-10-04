@@ -2,14 +2,14 @@
 <!--
 SQL Data Generator 3
 SQL Data Generator
-Version:3.0.1.560-->
+Version:3.1.0.226-->
 <Project version="2" type="SDGProject">
   <DataSource version="3" type="LiveDatabaseSource">
     <ServerName>TigerTreeServer\sql2014</ServerName>
     <DatabaseName>TigerTreeFoods</DatabaseName>
     <Username>TigerTree</Username>
     <SavePassword>True</SavePassword>
-    <Password>TigerTree1</Password>
+    <Password encrypted="1">DVRt+q8yhPhuiG+h9eYrbg==</Password>
     <ScriptFolderLocation />
     <MigrationsFolderLocation />
     <IntegratedSecurity>False</IntegratedSecurity>
@@ -915,6 +915,29 @@ VALUES
         ( N'6965206853265132', 0.62, NULL, N'Gala apples', @biggerdata ),
         ( N'1451854120120512', 0.49, 0.45, N'Cooking apples', @biggerdata ),
         ( N'9416319635210663', 0.30, NULL, N'Value green apples', @biggerdata )</Script>
+    </value>
+    <value version="1" type="SQLScript">
+      <SQLScriptType>InternalSQLScript</SQLScriptType>
+      <Name>Searchable MemberId</Name>
+      <Script>INSERT  INTO dbo.Members
+        ( MembershipCode ,
+          FirstName ,
+          LastName ,
+          Address1 ,
+          Address2 ,
+          PostCode ,
+          City ,
+          FavouriteProductId
+        )
+VALUES  ( '123456789ABC' ,
+          N'Ben' ,
+          N'Emmett' ,
+          N'Redgate Towers' ,
+          N'Cambridge Business Park' ,
+          N'CB4 0WZ' ,
+          N'Cambridge' ,
+          1
+        )</Script>
     </value>
   </PostScripts>
   <IsRefresh>False</IsRefresh>
