@@ -637,13 +637,13 @@ Version:3.1.0.226-->
           <DefinedSize>30</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.FileListGenerator</GeneratorTypeName>
-            <DisplayName>UK City</DisplayName>
-            <Description>London, Cambridge, Birmingham...</Description>
+            <DisplayName>US City</DisplayName>
+            <Description>New York, Los Angeles, Chicago...</Description>
             <CategoryName>Geographical</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">FileName</key>
-                <value type="string">UKCity.txt</value>
+                <value type="string">USCity.txt</value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -968,6 +968,15 @@ VALUES
         ( N'6965206853265132', 0.62, NULL, N'Gala apples', @biggerdata, N'Apples' ),
         ( N'1451854120120512', 0.49, 0.45, N'Cooking apples', @biggerdata, N'Apples' ),
         ( N'9416319635210663', 0.30, NULL, N'Value green apples', @biggerdata, N'Apples' )</Script>
+    </value>
+    <value version="1" type="SQLScript">
+      <SQLScriptType>InternalSQLScript</SQLScriptType>
+      <Name>Update cities to London</Name>
+      <Script>UPDATE  dbo.Members
+SET     City = N'London'
+WHERE   MemberId IN ( SELECT TOP 50413
+                                MemberId
+                      FROM      dbo.Members )</Script>
     </value>
     <value version="1" type="SQLScript">
       <SQLScriptType>InternalSQLScript</SQLScriptType>
