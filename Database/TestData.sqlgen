@@ -962,7 +962,7 @@ DECLARE @biggerdata VARBINARY(MAX) = CONVERT(VARBINARY(MAX), REPLICATE(@data, 32
 INSERT  INTO dbo.Products
         ( Barcode, RegularPrice, OfferPrice, TillDescription, Image, Category )
 VALUES
-        ( N'3150812445206845', 0.40, NULL, N'Honeycrisp apples', @biggerdata, N'Apples' ),
+        ( N'123456789', 0.40, NULL, N'Honeycrisp apples', @biggerdata, N'Apples' ),
         ( N'9651206845100512', 0.45, 0.40, N'Granny smith apples', @biggerdata, N'Apples' ),
         ( N'0234596532035416', 0.50, NULL, N'Pink lady apples', @biggerdata, N'Apples' ),
         ( N'6965206853265132', 0.62, NULL, N'Gala apples', @biggerdata, N'Apples' ),
