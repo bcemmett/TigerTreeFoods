@@ -10,7 +10,7 @@ namespace PosTerminal
         {
             var shoppingItem = new ShoppingItem();
             string connectionString = ConfigurationManager.ConnectionStrings["LiveDb"].ConnectionString;
-            ;
+            
             using (var conn = new SqlConnection(connectionString))
             {
                 conn.Open();
